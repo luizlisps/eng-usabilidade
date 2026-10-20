@@ -27,3 +27,6 @@
 
 # Lixo de sistema, mesmo dentro das pastas liberadas
 .DS_Store
+
+!entrega1/relatorio/UCEngUs_E1_Grupo0X_ajustado.tex
+!entrega1/relatorio/figuras/*
