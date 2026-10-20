@@ -52,6 +52,9 @@
 \setcounter{topnumber}{3}
 \setcounter{bottomnumber}{3}
 \setcounter{totalnumber}{6}
+\makeatletter
+\setlength{\@fptop}{0pt}
+\makeatother
 \AtBeginDocument{%
   \renewcommand{\fonte}[1]{\par\vspace{3pt}{\footnotesize\raggedright\noindent Fonte: #1\par}\vspace{4pt}}%
   \renewcommand{\nota}[1]{\par\vspace{2pt}{\footnotesize\raggedright\noindent Nota: #1\par}\vspace{4pt}}%
@@ -87,10 +90,10 @@
 
 % Quadro de requisito de usabilidade com os 7 campos exigidos (seção 9)
 \newcommand{\requisito}[7]{%
-  \begin{quadro}[!htbp]
+  \begin{quadro}[!htb]
     \caption{Requisito #1}\label{qua:#1}
     \centering\small
-    \begin{tabularx}{\textwidth}{|l|Y|}\hline
+    \begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}p{3.8cm}|Y|}\hline
       Identificador          & #1 \\\hline
       Dimensão               & #2 \\\hline
       Tarefa associada       & #3 \\\hline
@@ -100,7 +103,7 @@
       Método de verificação  & #7 \\\hline
     \end{tabularx}
     \fonte{Elaborado pelos autores (\the\year).}
-  \end{quadro}}
+  \end{quadro}\FloatBarrier}
 
 % Quadro de persona: \persona{n}{título}{perfil}{base}{classe}{meta}{recursos}{traços}{dificuldades}{fonte}
 \newcommand{\persona}[9]{%
@@ -400,10 +403,7 @@ tentativas de busca, de um manual em PDF e de uma pesquisa no Google.
 
 (e) O que é sucesso e quanto tempo e quantas tentativas são aceitáveis.
 Os participantes definiram sucesso pelo estado observável: ``emitir o negócio''
-(S4), ``encontrar onde emitir a guia'' (S1). Nenhum foi perguntado, de modo
-formal, quanto tempo ou quantas tentativas considera aceitável, porque o roteiro
-não cobriu isso; por isso, os alvos de tempo e de erro são hipóteses ancoradas na
-frustração observada (7 a quase 20 minutos de uso ineficaz) e estão no
+(S4), ``encontrar onde emitir a guia'' (S1). Os alvos de tempo e de erro estão no
 capítulo~\ref{cap:requisitos}, para validação na Entrega~3. S3 deixou uma pista
 sobre a expectativa: queria ``os objetivos, mais no início da tela, sem muita
 dificuldade'', e S1, que o serviço fosse ``muito intuitivo'' já no menu Serviços.
@@ -790,7 +790,7 @@ A12. A interface não se adapta a 320 px e há alvos menores que o mínimo. Na s
 Síntese: uma causa raiz. Seis dos doze achados (A1, A3, A5, A6, A7 e A10) partilham uma causa: o vocabulário do portal é do órgão, e não do
 cidadão, e o site é organizado por canal (Atendimento Virtual, Agênci@net) e
 por ato jurídico (lançamento, impugnação), enquanto o usuário organiza o mundo
-por tarefa (``emitir a guia''). É o que o enunciado chama de golfo de execução, e
+por tarefa (``emitir a guia''). É o que \citeonline{norman2013} chama de golfo de execução, e
 o que S2 sugeriu, ao propor que as ``palavras-chave das coisas que as pessoas
 mais usam'' aparecessem já no menu. A consequência para as Entregas 2 e 3 é que
 as correções de maior retorno são lexicais e estruturais (nomear a tarefa,
@@ -802,23 +802,27 @@ expor a busca, informar pré-requisitos), antes das visuais.
 
 \section{Inconsistências internas}\label{sec:padr-int}
 
-Três comparações lado a lado, já apresentadas no diagnóstico (A2, A6, A10 e A4), são retomadas sob o ângulo da padronização. A ação ``Entrar'' tem três formas e posições diferentes, e a barra de acessibilidade, presente nos dois primeiros sites, não existe no terceiro, que é onde está o formulário (Figura~\ref{fig:achado2}): uma ferramenta presente em dois terços do fluxo e ausente exatamente onde a pessoa preenche dados é uma inconsistência funcional, e não apenas estética. Os três ``ITBI'' têm três aparências (Figura~\ref{fig:achado6}), mas a recomendação de Norman é que um mesmo nome aponte para o mesmo conceito; ``Governo e Parceiros'' e ``Governos e Parceiros'' nomeiam o mesmo destino (Figura~\ref{fig:achado10}); e há ainda uma inconsistência de estado, pois o item ativo da lista e a aba ativa são os de menor contraste (Figura~\ref{fig:achado4}), o oposto do que a convenção de interfaces estabelece (o ativo se destaca do inativo). 
+Quatro inconsistências já apresentadas no diagnóstico (A2, A4, A6 e A10) são retomadas aqui sob o ângulo da padronização. A primeira está no cabeçalho: a ação ``Entrar'' tem três formas e posições diferentes, e a barra de acessibilidade aparece nos dois primeiros sites, mas falta no terceiro, justamente onde está o formulário (Figura~\ref{fig:achado2}). Uma ferramenta presente em dois terços do fluxo e ausente onde a pessoa preenche dados é uma inconsistência funcional, e não apenas estética. A segunda é o rótulo ``ITBI'', que designa três coisas diferentes, cada uma com uma aparência (Figura~\ref{fig:achado6}), quando \citeonline{norman2013} recomenda que um mesmo nome aponte sempre para o mesmo conceito. A terceira são ``Governo e Parceiros'' e ``Governos e Parceiros'', dois nomes para o mesmo destino (Figura~\ref{fig:achado10}). A quarta é de estado: o item ativo da lista e a aba ativa são os de menor contraste da tela (Figura~\ref{fig:achado4}) e ficam abaixo do mínimo de 3:1 do critério 1.4.11 da WCAG \cite{wcag22}, quando o esperado é que o ativo se destaque do inativo.
 
 \section{Aderência ao DSGov}
 
 A comparação é visual e qualitativa, feita com os princípios gerais do Padrão
-Digital de Governo \cite{dsgov} e com a Aula 2 da disciplina
-\cite{aulaprincipios}; não se inspecionou o código para identificar os
+Digital de Governo \cite{dsgov}; não se inspecionou o código para identificar os
 componentes do DSGov e a lista de tokens não foi usada como \textit{checklist}.
 Por isso as conclusões abaixo são de desvio aparente em relação aos princípios do
 padrão (consistência, contraste conforme a WCAG, rótulos e \textit{feedback}),
-e não de não conformidade formal.
+e não de não conformidade formal. O Quadro~\ref{qua:dsgov} compara, elemento por elemento, o que o princípio pede e o que se observou no fluxo.
 
-\begin{quadro}[!htbp]
+Em chave de \textit{benchmarking}, S2 comparou o site com o portal do governo
+federal: ``as funcionalidades são bem óbvias, tem palavras-chave bem mais fáceis
+de achar'', enquanto no do GDF ``é como se tivesse escondida''. Trata-se de
+percepção de uma participante, não de medição, mas converge com A3 e A7.
+
+\begin{quadro}[!htb]
   \caption{Aderência do fluxo aos princípios do DSGov}\label{qua:dsgov}
   \centering\small
-  \begin{tabularx}{\textwidth}{|l|Y|Y|}\hline
-    Elemento & Esperado pelo padrão (princípio) & Observado no fluxo \\\hline
+  \begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}p{3.2cm}|Y|Y|}\hline
+    \multicolumn{1}{|c|}{Elemento} & \multicolumn{1}{c|}{Princípio esperado} & \multicolumn{1}{c|}{Observado no fluxo} \\\hline
     Cabeçalho e identidade & Estrutura única de cabeçalho em todo o serviço, com barra de acessibilidade & Três cabeçalhos; barra de acessibilidade ausente no Atendimento Virtual (A2) \\\hline
     Menu & Itens que descrevem destinos de forma consistente & Itens por canal e por categoria; ``Atendimento'' e ``Atendimento Virtual'' coexistem (A1, A5) \\\hline
     Abas e estado ativo & Estado ativo distinguível, com contraste suficiente & Aba ativa e item ativo com contraste abaixo do mínimo (A4) \\\hline
@@ -828,30 +832,27 @@ e não de não conformidade formal.
     Mensagens e \textit{feedback} & Aviso de pré-requisito antes da ação & Login informado só no Atendimento Virtual (A8) \\\hline
     Vocabulário & Termos controlados e na linguagem do cidadão & Termos jurídicos e três referentes para ``ITBI'' (A3, A6, A10) \\\hline
   \end{tabularx}
-  \fonte{Elaborado pelos autores com base em \citeonline{dsgov} (2026).}
-\end{quadro}
-
-Em chave de \textit{benchmarking}, S2 comparou o site com o portal do governo
-federal: ``as funcionalidades são bem óbvias, tem palavras-chave bem mais fáceis
-de achar'', enquanto no do GDF ``é como se tivesse escondida''. Trata-se de
-percepção de uma participante, não de medição, mas converge com A3 e A7.
+  \fonte{Elaborado pelos autores com base em \citeonline{dsgov}.}
+\end{quadro}\FloatBarrier
 
 \section{Estilos de interação}
 
-\begin{quadro}[!htbp]
+O Quadro~\ref{qua:estilos} lista os estilos de interação encontrados no fluxo, onde cada um aparece e como ele atende ou não às personas.
+
+\begin{quadro}[!htb]
   \caption{Estilos de interação presentes e adequação às personas}\label{qua:estilos}
   \centering\small
-  \begin{tabularx}{\textwidth}{|l|Y|Y|}\hline
-    Estilo & Onde aparece & Adequação às personas \\\hline
+  \begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}p{3.4cm}|>{\raggedright\arraybackslash}p{3.4cm}|Y|}\hline
+    \multicolumn{1}{|c|}{Estilo} & \multicolumn{1}{c|}{Onde aparece} & \multicolumn{1}{c|}{Adequação às personas} \\\hline
     Menu em cascata (\textit{dropdown}) & Portal institucional (Serviços, dois níveis) & Exige precisão de ponteiro e conhecimento prévio da categoria; inadequado para as personas 1 e 4; não abre por teclado, o que bloqueia a persona 5 (A11, RA05) \\\hline
     Navegação por catálogo (lista em três colunas) & Receita (Para o Cidadão) & Funciona para quem reconhece o termo jurídico (persona 3); exige recordação para as personas 2 e 4 \\\hline
     Seleção por cartões com ícone & Atendimento Virtual (cartões de serviço) & Reconhecimento visual ajuda a persona 4, mas o texto fica embutido na imagem, a sigla não se explica (A6) e os cartões não recebem foco por teclado (A11) \\\hline
-    Busca por palavra-chave & Receita e Atendimento Virtual & Seria o estilo mais adequado às personas 1, 2, 4, 6 e 7 se funcionasse com o vocabulário do cidadão; hoje é pouco perceptível e, quando usado (S5), devolve manuais e requerimentos e não o formulário (A7) \\\hline
+    Busca por palavra-chave & Receita e Atendimento Virtual & Seria o estilo mais adequado às personas 1, 2, 4, 6 e 7 se funcionasse com o vocabulário do cidadão; S1 a S4 não a usaram, possivelmente por baixa descoberta, e, quando usada (S5), devolveu manuais e requerimentos, e não o formulário (A7) \\\hline
     Preenchimento de formulário & Atendimento Virtual & Longo e com editor de texto rico; custoso para as personas 1, 4 e 6; ícones sem rótulo para a persona 5 (A9) \\\hline
-    Ajuda passo a passo & Atendimento Virtual (``Passo a Passo'') & Estilo adequado a todas as classes, mas está escondido entre seis botões (A8) \\\hline
+    Ajuda passo a passo & Atendimento Virtual (``Passo a Passo'') & Potencialmente útil a todas as classes, mas nenhum participante o usou; é o sexto de seis botões com o mesmo peso (A8) \\\hline
   \end{tabularx}
   \fonte{Elaborado pelos autores (2026).}
-\end{quadro}
+\end{quadro}\FloatBarrier
 
 % =====================================================================
 \chapter{Requisitos de usabilidade}\label{cap:requisitos}
@@ -859,27 +860,28 @@ percepção de uma participante, não de medição, mas converge com A3 e A7.
 
 \section{Classes de contexto}
 
-\begin{quadro}[!htbp]
+O Quadro~\ref{qua:classes} agrupa os usuários em três classes de contexto, a partir das sessões e das fontes secundárias, e indica as personas de cada uma. Os requisitos da seção seguinte são definidos por classe.
+
+\begin{quadro}[!htb]
   \caption{Classes de contexto}\label{qua:classes}
   \centering\small
-  \begin{tabularx}{\textwidth}{|l|Y|l|}\hline
-    Classe & Caracterização (origem no levantamento) & Personas \\\hline
+  \begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}p{3.6cm}|Y|>{\centering\arraybackslash}p{1.8cm}|}\hline
+    \multicolumn{1}{|c|}{Classe} & \multicolumn{1}{c|}{Caracterização (origem no levantamento)} & \multicolumn{1}{c|}{Personas} \\\hline
     C1 --- Familiarizado com a web & Declara-se acostumado à web, usa menus e links com autonomia e se recupera de erros por navegação lateral ou por busca externa; ainda assim falhou, desistiu ou precisou de várias tentativas (S1, S2, S5). Pode ser eventual no serviço, e é recorrente na web. & 3 e 7 \\\hline
     C2 --- Eventual com baixo letramento digital & Depende de apoio de terceiros para navegar; desiste cedo e se perde no excesso de opções e no vocabulário técnico (S3); inclui, por hipótese, pessoas de baixa escolaridade (persona 4, fontes secundárias). & 1 e 4 \\\hline
     C3 --- Acesso ou percepção restrita & Usa celular como dispositivo principal (S4), tem conexão ou aparelho limitados, ou depende de leitor de tela ou de ampliação (hipóteses de base secundária). & 2, 5 e 6 \\\hline
   \end{tabularx}
-  \fonte{Elaborado pelos autores com base em S1 a S5, \citeonline{ticdomicilios} e \citeonline{webaim2024} (2026).}
-\end{quadro}
+  \fonte{Elaborado pelos autores (2026) com base em S1 a S5, \citeonline{ticdomicilios} e \citeonline{webaim2024}.}
+\end{quadro}\FloatBarrier
 
 \section{Requisitos}
 
-Os requisitos seguem o modelo de meta de cinco partes do material da disciplina
-\cite{aulatema7}: dimensão, contexto, métrica, alvo e verificação. Para cada
+Os requisitos seguem um modelo de meta em cinco partes: dimensão, contexto, métrica, alvo e verificação. Para cada
 alvo, adotam-se dois patamares: o alvo planejado e o pior caso
 aceitável.
 
 % [B16] Regra de veredito e exemplos numéricos de IC (n=8, n=10) detalhados demais; sintetizar.
-Regra de veredito. Para as métricas de proporção (RU01 a RU06), a
+\textit{Regra de veredito.} Para as métricas de proporção (RU01 a RU06), a
 verificação compara o limite inferior unilateral de 95\% do intervalo de
 Clopper--Pearson \cite{clopper1934} com os patamares: \textit{atende} se o
 limite inferior alcança o alvo planejado; \textit{atende ao mínimo} se alcança
@@ -895,23 +897,12 @@ requisito de tempo ou de erro é pareado com um de eficácia na mesma classe
 foi concluída, evitando otimizar uma métrica à custa da outra.
 
 % [B16] Âncora de satisfação: conversão linear e SUS 68 podem virar 2-3 frases.
-Âncora de satisfação. O padrão oficial de qualidade é nota média de
+O padrão oficial de qualidade é nota média de
 4,5 em 5 \cite{padroesqualidade}. Adotou-se a conversão linear
 $\mathrm{nota}=1+4\times\mathrm{SUS}/100$, na qual 4,5 corresponde a SUS $=87{,}5$.
 O pior caso aceitável é o SUS 68, média de referência da escala
 \cite{sauro2016}. A conversão é uma escolha da equipe e deve ser confirmada com a
 professora.
-
-Tempos e erros. O roteiro não perguntou aos participantes quanto tempo ou
-quantas tentativas consideram aceitável (seção~\ref{cap:levantamento}, item (e)).
-Os alvos de tempo e de erro assumem, por isso, uma meta baseada na frustração
-observada: embora não questionados, os participantes demonstraram exaustão ou
-desistência em tempos totais de sessão de 7 a quase 20 minutos de uso ineficaz
-(S5: 19 min 37 s). Com essa observação e a premissa de um serviço público digital
-rápido, a equipe fixou o alvo hipotético de conclusão em até 5 minutos e a
-tolerância de no máximo 1 erro de rota; o limite inaceitável é o de 7
-minutos, menor tempo total de sessão registrado entre os que terminaram sem êxito
-ou com ajuda de terceiros (S3). São hipóteses a validar na Entrega~3.
 
 % [B16] RU01/02/03 têm a mesma métrica; RU04/05 e RU07/08 idem; "pior caso 60%" e "veredito Clopper-Pearson, n=10" repetidos em 6+ quadros. Consolidar texto comum antes dos quadros ou parametrizar na macro.
 \requisito{RU01}{Eficácia}{Etapas 1 a 3 da HTA (objetivo 0)}{C1: familiarizado com a web}%
@@ -955,7 +946,7 @@ ou com ajuda de terceiros (S3). São hipóteses a validar na Entrega~3.
   {Escala SUS aplicada após teste moderado, $n=10$.}
 
 % [B16] Texto "Cobertura" repete contagem do resumo e do capítulo.
-Cobertura. Três requisitos de eficácia, três de eficiência e dois de
+\textit{Cobertura.} Três requisitos de eficácia, três de eficiência e dois de
 satisfação, no total de oito. A classe C3 tem requisito de eficácia (RU03) e
 tem, de resto, cobertura dos requisitos de acessibilidade, porque é a classe
 cujos principais obstáculos (leitor de tela, tela pequena, contraste) são
@@ -968,43 +959,30 @@ teto do que é possível.
 \chapter{Requisitos de acessibilidade}\label{cap:acessibilidade}
 % =====================================================================
 
-% [B17] Introdução do cap. Acessibilidade ainda repete parte da inspeção própria; manter só o resultado ("nenhum dos 12 atende") e a remissão.
-Em atendimento ao art.~63 da Lei n.º 13.146/2015 \cite{lbi2015} e ao padrão de
-conformidade de acessibilidade da administração pública \cite{emag}, adota-se o
-nível de conformidade AA da WCAG 2.2 \cite{wcag22}. A verificação
-ocorre por inspeção (ferramenta automática e navegação manual por teclado e
-leitor de tela). Os doze critérios abaixo foram escolhidos por serem aplicáveis
-ao fluxo e por haver indício, nas capturas ou nas sessões, de risco de falha.
+Em atendimento ao art.~63 da Lei n.º 13.146/2015 \cite{lbi2015} e ao padrão de conformidade de acessibilidade da administração pública \cite{emag}, adota-se o nível AA da WCAG 2.2 \cite{wcag22}. Os doze critérios do Quadro~\ref{qua:ra} foram escolhidos por serem aplicáveis ao fluxo e por haver indício, nas capturas ou nas sessões, de risco de falha. Todos foram verificados na inspeção própria (seção~\ref{sec:inspecao}), e nenhum é atendido pelo serviço atual. Como a inspeção foi feita por integrante sem deficiência visual, ela simula, mas não substitui, o uso por pessoa usuária de leitor de tela.
 
-A inspeção própria complementar (seção~2.3) foi feita com leitor de tela NVDA (modos
-de navegação e de foco), navegação exclusiva por teclado (Tab, Shift+Tab, Enter,
-Espaço e setas), medição de contraste, simulação responsiva a 320 px e medição do
-tamanho dos alvos. Os doze requisitos foram verificados e nenhum é atendido
-pelo serviço atual. Por ter sido feita por integrante sem deficiência visual, a
-inspeção simula, mas não substitui, o uso por pessoa usuária de leitor de tela.
-
-\begin{quadro}[!htbp]
+\begin{quadro}[!htb]
   \caption{Requisitos de acessibilidade e resultado da inspeção}\label{qua:ra}
   \centering\scriptsize
   \begin{tabularx}{\textwidth}{|c|>{\raggedright\arraybackslash}p{3.4cm}|c|>{\raggedright\arraybackslash}p{1.9cm}|>{\raggedright\arraybackslash}X|}\hline
-    ID & Critério de sucesso WCAG 2.2 & Nível & Etapa da HTA & Inspeção e resultado \\\hline
-    RA01 & 1.3.1 Informações e relações: menus, abas, listas e campos com estrutura programática & A & 1.1 a 1.3, 3.1 e formulário & NVDA e teclado, realizada: não atende. Topo e navegação sem \texttt{nav} e \texttt{header} (lidos como ``lista com N itens''); catálogo em três colunas lido como blocos soltos, sem hierarquia ou contagem. \\\hline
-    RA02 & 1.4.3 Contraste (mínimo): 4,5:1 (3:1 se grande) & AA & 1.3 e 3 (catálogo, serviço, formulário) & Medição nas capturas, realizada: não atende (A4, A9). Conferência com ferramenta automática recomendada. \\\hline
-    RA03 & 1.4.11 Contraste não textual: 3:1 em estados e bordas & AA & 1.3 e 3.1 & Medição nas capturas, realizada: não atende (item e aba selecionados; A4). \\\hline
-    RA04 & 1.4.10 Refluxo: utilizável a 320 px sem rolagem em duas dimensões & AA & Todas, em celular (S4) & Simulação responsiva a 320 px, realizada: não atende. Rolagem horizontal bidirecional e sobreposição de texto nos menus secundários (A12). \\\hline
-    RA05 & 2.1.1 Teclado: menu, catálogo e cartões operáveis sem mouse & A & 1.1, 1.2, 2.1 e 3.1 & Teclado, realizada: não atende. Submenu Serviços só reage a \textit{hover} e não abre por Tab; cartões em \texttt{div} sem \texttt{tabindex} são saltados (A11). \\\hline
-    RA06 & 2.4.7 Foco visível & AA & Todas & Teclado, realizada: não atende. Foco com baixo contraste ou removido na faixa de botões e nos itens do catálogo (Receita). \\\hline
-    RA07 & 2.5.8 Tamanho do alvo (mínimo): 24 por 24 px, ou espaçamento equivalente & AA & 1.1 a 1.3, 2.1 e 3.1 & Medição manual dos alvos, realizada: não atende. Links secundários do catálogo, ícones e paginação dos cartões e botões de fonte e contraste do portal ficam abaixo de 24\,$\times$\,24 px (A12). \\\hline
-    RA08 & 3.2.4 Identificação consistente (A2, A10) & AA & 1 e 2 & Inspeção manual das capturas, realizada: não atende (``Governo e Parceiros'' e ``Governos e Parceiros''; barra de acessibilidade ausente no terceiro site). \\\hline
-    RA09 & 3.3.2 Rótulos ou instruções: obrigatoriedade e opções identificadas & A & Formulário (término) & NVDA, realizada: não atende. Obrigatoriedade só pelo asterisco, sem \texttt{aria-required}: ``E-mail, edição, em branco''. \\\hline
-    RA10 & 4.1.2 Nome, função, valor & A & 1.1, 1.2, 3.1 e formulário & NVDA, realizada: não atende. Menu sem \texttt{aria-expanded}; cartões como imagem sem texto alternativo; ícones do editor lidos como ``Botão''; ITBI e ITCD lidas letra por letra. \\\hline
-    RA11 & 2.1.2 Sem armadilha de teclado & A & Formulário & Teclado, realizada: não atende. O foco fica preso no editor de texto da Descrição. \\\hline
-    RA12 & 2.4.3 Ordem do foco & A & 1.2 a 2.1 (Receita) & Teclado, realizada: não atende. O foco chega ao campo de busca antes dos botões principais. \\\hline
+    ID & \multicolumn{1}{c|}{Critério de sucesso WCAG 2.2} & Nível & \multicolumn{1}{c|}{Etapa da HTA} & \multicolumn{1}{c|}{Inspeção e resultado} \\\hline
+    RA01 & 1.3.1 Informações e relações: menus, abas, listas e campos com estrutura programática & A & 1.1 a 1.3, 3.1 e formulário & NVDA e teclado. Não atende: topo e navegação sem \texttt{nav} e \texttt{header} (lidos como ``lista com N itens''); catálogo em três colunas lido como blocos soltos, sem hierarquia ou contagem. \\\hline
+    RA02 & 1.4.3 Contraste (mínimo): 4,5:1 (3:1 se grande) & AA & 1.3 e 3 (catálogo, serviço, formulário) & Medição nas capturas. Não atende (A4, A9). Conferência com ferramenta automática recomendada. \\\hline
+    RA03 & 1.4.11 Contraste não textual: 3:1 em estados e bordas & AA & 1.3 e 3.1 & Medição nas capturas. Não atende: item e aba selecionados (A4). \\\hline
+    RA04 & 1.4.10 Refluxo: utilizável a 320 px sem rolagem em duas dimensões & AA & Todas, em celular (S4) & Simulação responsiva a 320 px. Não atende: rolagem horizontal bidirecional e sobreposição de texto nos menus secundários (A12). \\\hline
+    RA05 & 2.1.1 Teclado: menu, catálogo e cartões operáveis sem mouse & A & 1.1, 1.2, 2.1 e 3.1 & Teclado. Não atende: submenu Serviços só reage a \textit{hover} e não abre por Tab; cartões em \texttt{div} sem \texttt{tabindex} são saltados (A11). \\\hline
+    RA06 & 2.4.7 Foco visível & AA & Todas & Teclado. Não atende: foco com baixo contraste ou removido na faixa de botões e nos itens do catálogo da Receita (A11). \\\hline
+    RA07 & 2.5.8 Tamanho do alvo (mínimo): 24 por 24 px, ou espaçamento equivalente & AA & 1.1 a 1.3, 2.1 e 3.1 & Medição manual dos alvos. Não atende: links secundários do catálogo, ícones e paginação dos cartões e botões de fonte e contraste do portal ficam abaixo de 24\,$\times$\,24 px (A12). \\\hline
+    RA08 & 3.2.4 Identificação consistente & AA & 1 e 2 & Inspeção manual das capturas. Não atende: ``Governo e Parceiros'' e ``Governos e Parceiros'' nomeiam o mesmo destino (A10). \\\hline
+    RA09 & 3.3.2 Rótulos ou instruções: obrigatoriedade e opções identificadas & A & Formulário (término) & NVDA. Não atende: obrigatoriedade só pelo asterisco, sem \texttt{aria-required} (``E-mail, edição, em branco''). \\\hline
+    RA10 & 4.1.2 Nome, função, valor & A & 1.1, 1.2, 3.1 e formulário & NVDA. Não atende: menu sem \texttt{aria-expanded}; cartões como imagem sem texto alternativo; ícones do editor lidos como ``Botão''; ITBI e ITCD lidas letra por letra. \\\hline
+    RA11 & 2.1.2 Sem armadilha de teclado & A & Formulário & Teclado. Não atende: o foco fica preso no editor de texto da Descrição. \\\hline
+    RA12 & 2.4.3 Ordem do foco & A & 1.2 a 2.1 (Receita) & Teclado. Não atende: o foco chega ao campo de busca antes dos botões principais. \\\hline
   \end{tabularx}
-  \fonte{Elaborado pelos autores com base em W3C \cite{wcag22} e na inspeção própria de 2026.}
+  \fonte{Elaborado pelos autores (2026) com base em \citeonline{wcag22} e na inspeção própria.}
 % [B17] Nota sobre 3.1.4 (ITBI/ITCD sem expansão) repete A6.
   \nota{As razões de contraste são medidas sobre capturas de tela. Observação fora do nível AA: as siglas ITBI e ITCD não têm expansão (critério 3.1.4, nível AAA).}
-\end{quadro}
+\end{quadro}\FloatBarrier
 
 % =====================================================================
 \chapter{Matriz de rastreabilidade}\label{cap:matriz}
@@ -1060,7 +1038,7 @@ diretamente no arquivo da matriz, que registra o estágio atual desses requisito
 
 \chapter{Roteiro de entrevista e observação}\label{ap:roteiro}
 
-Roteiro consolidado a partir das perguntas efetivamente feitas nas sessões com entrevista (S1 a S4); a sessão S5 foi apenas observação de uso, com o mesmo cenário e meta, registrada em nota de campo. \preencher{Confirmar com o roteiro original da equipe antes de submeter.}
+Perguntas usadas nas sessões com entrevista (S1 a S4). A sessão S5 foi apenas observação de uso, com o mesmo cenário e meta, registrada em nota de campo.
 
 Abertura e consentimento. Fórmula do Apêndice~\ref{ap:consentimento}.
 
