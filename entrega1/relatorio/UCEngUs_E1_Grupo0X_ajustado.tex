@@ -1,3 +1,11 @@
+% =====================================================================
+% PONTOS DE ENXUGAMENTO (a revisar um a um). Legenda dos marcadores:
+% Obs.: números de linha citados nos comentários [B..] referem-se ao arquivo original e estão deslocados; buscar pelos marcadores [B9], [B10] etc.
+%   [B9..B19] redundâncias médias; [C20] resumo. (A1 a A8 já aplicadas.)
+% B9 presencial devolve ao site | B10 custo da falha | B11 três domínios
+% B12 cap. Contexto repete cap. Levantamento | B13 Delimitação x HTA | B14 Personas
+% B15 HTA | B16 Requisitos | B17 cap. Acessibilidade | B18 Matriz | B19 Apêndices
+% =====================================================================
 \documentclass[
   12pt,
   oneside,
@@ -193,6 +201,7 @@ requisito de avaliação sob orientação da Prof. Dr.\preencher{0X}.}
 \imprimircapa
 \imprimirfolhaderosto
 
+% [C20] Resumo muito longo (~20 linhas): repete contagens do corpo (sessões, personas, RU, RA, IC). Reduzir a objetivo, método, resultado-chave e limitação.
 \begin{resumo}
 Este relatório discorre, sobrerudo, sobre o diagnóstico do contexto de uso e a especificação de
 requisitos de usabilidade e de acessibilidade do fluxo de solicitar a emissão da
@@ -249,6 +258,7 @@ contexto de uso. requisitos.
 \chapter{Identificação do serviço}\label{cap:identificacao}
 % =====================================================================
 
+% [B11] "três domínios com identidades distintas" (linhas 257-262) reaparece no Quadro Ambiente (483), em A2 e em Padronização (918).
 Este relatório aplica, sobretudo, os conceitos definidos na ISO 9241-11:2018, ao serviço de solicitação de emissão da guia de ITBI no
 portal da Secretaria de Economia do Distrito Federal. Sendo que, segundo a norma, usabilidade é a medida em que usuários
 específicos alcançam metas específicas, em um contexto de uso específico, com
@@ -268,6 +278,7 @@ terceiro, depois da autenticação; neste relatório foi tratado do trajeto até
     \textbf{Serviço}             & Solicitação de emissão da guia de ITBI (transmissão onerosa de imóvel), por Atendimento Virtual. Ponto de partida: \url{https://www.economia.df.gov.br/}; formulário: \url{https://atendimentovirtual.fazenda.df.gov.br/}. \\\hline
     \textbf{Órgão responsável}   & Secretaria de Estado de Economia do Distrito Federal (SEEC), por meio da Receita do Distrito Federal. \\\hline
     \textbf{Canais disponíveis}  & Portal institucional e portal da Receita (carta de serviços); sistema Atendimento Virtual (pessoa física e jurídica), com busca, registro, consulta, reabertura, complementação e avaliação de solicitações; Agência Virtual (Agênci@net); agendamento de atendimento presencial; telefone (S1 relata tentativa sem êxito). \\\hline
+% [B9] "atendimento presencial devolve ao site" também em Síntese, Ambiente e Justificativa.
     \textbf{Atendimento presencial correspondente} & Atendimento presencial da Receita, por agendamento (item “Agendar Atendimento Presencial” no menu Serviços). Os relatos de S1 e S4 mostram que o atendente orienta o indivíduo a refazer o pedido pelo site, tendo entregando um roteiro impresso. \\\hline
     \textbf{Natureza da demanda} & Obrigação tributária, dado que o ITBI incide sobre a transmissão onerosa de imóveis e o comprovante de pagamento da guia é exigido para registrar o processo. \\\hline
   \end{tabularx}
@@ -280,6 +291,7 @@ terceiro, depois da autenticação; neste relatório foi tratado do trajeto até
 
 \section{Métodos}
 
+% [B19] Cenário e meta da observação repetidos no Apêndice A (observação de uso, ~1218-1223). Manter em um só lugar.
 O levantamento foi feito a partir de dois métodos. Na observação de uso, foi dito à pessoa o cenário (“imagine que você comprou
 um imóvel e precisa pagar o imposto pelo Governo do DF”) e a meta (encontrar onde
 emitir a guia de ITBI) e executou o fluxo a partir de
@@ -293,23 +305,24 @@ de campo com marcação de tempo (Apêndice~\ref{ap:material}).
 \section{Sessões realizadas}
 
 \begin{table}[!htbp]
-  \caption{Sessões de levantamento de dados}\label{tab:sessoes}
+  \caption{Sessões de levantamento de dados e perfil dos participantes}\label{tab:sessoes}
   \centering\footnotesize
   \begin{tabularx}{\textwidth}{cl>{\raggedright\arraybackslash}p{2.7cm}>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}p{2.3cm}>{\raggedright\arraybackslash}p{2.0cm}}\toprule
     \textbf{Sessão} & \textbf{Data} & \textbf{Método} & \textbf{Perfil (sem nome)} & \textbf{Aparelho} & \textbf{Tempo} \\\midrule
-    S1 & 05/10/2026 & Observação de uso e entrevista & Mulher, por volta de 40 anos; ensino superior completo & Computador, em casa & 10 min \\
-    S2 & 06/10/2026 & Observação de uso e entrevista & Mulher, entre 20 e 30 anos; ensino superior completo & Computador de mesa & 9 min \\
-    S3 & 07/10/2026 & Entrevista & Homem idoso; ensino médio completo & Computador, em casa & 7 min \\
-    S4 & 08/10/2026 & Entrevista e observação de uso & Mulher, 19 anos; cursando ensino superior & Celular, em casa & 10 min \\
-    S5 & 19/10/2026 & Observação de uso (nota de campo) & Homem, 23 anos; ensino superior incompleto & Notebook & 19 min 37 s \\\bottomrule
+    S1 (P01) & 05/10/2026 & Observação de uso e entrevista & Mulher, por volta de 40 anos; ensino superior completo; já lidou com ITBI & Computador, em casa & 10 min \\
+    S2 (P02) & 06/10/2026 & Observação de uso e entrevista & Mulher, entre 20 e 30 anos; ensino superior completo; habituada à web & Computador de mesa & 9 min \\
+    S3 (P03) & 07/10/2026 & Entrevista & Homem idoso; ensino médio completo; já lidou com a questão; depende da esposa para a internet & Computador, em casa & 7 min \\
+    S4 (P04) & 08/10/2026 & Entrevista e observação de uso & Mulher, 19 anos (maior de idade); cursando ensino superior; já lidou com compra, venda e recebimento de imóveis & Celular, em casa & 10 min \\
+    S5 (P05) & 19/10/2026 & Observação de uso (nota de campo) & Homem, 23 anos; ensino superior incompleto & Notebook & 19 min 37 s \\\bottomrule
   \end{tabularx}
   \fonte{Elaborada pelos autores (2026).}
+  \nota{O código (P01 a P05) identifica o participante no Apêndice~\ref{ap:material}. Os tempos de S1 a S4 são totais de sessão.}
 \end{table}
 
 \section{Fontes primárias, secundárias e inspeção própria}
 
 \textbf{Fonte primária.} As cinco sessões e suas notas e transcrições
-(Apêndices~\ref{ap:perfil} a~\ref{ap:material}).
+(Apêndices~\ref{ap:consentimento} e~\ref{ap:material}).
 
 \textbf{Fontes secundárias.} Foram usadas a pesquisa TIC Domicílios
 \cite{ticdomicilios}, sobre o dispositivo de acesso à internet no país; o Censo
@@ -336,6 +349,7 @@ Dado que o ITBI é um tributo quem se paga apenas ao comprar um imóvel, os cinc
 não utiizam esse serviço rotineiramente. No caso de S1, S3 e S4, eles já haviam lidado com a plataforma;
 S4 relatou compra; S5 perguntou, durante a
 busca, o que significa ITBI, o que mostra que a sigla não é de conhecimento
+% [B9] Citações do atendimento presencial: versão canônica aqui; Ambiente e Justificativa repetem a ideia.
 geral nem entre pessoas escolarizadas. Além disso, três de cinco chegaram ao site porque o
 atendimento presencial ou terceiros os mandaram para lá, pois S3 ouviu que ``agora é
 tudo por lá e não adiantava ir pessoalmente''; S1 foi à Secretaria depois de
@@ -352,6 +366,7 @@ documentos ou informações seriam necessários, dado que S1 descobriu ``convers
 pessoal da Secretaria''; S4, ``perguntando para o atendente''. interessante acrescentar que a busca por apoio externo foi frequente, sendo família (S1, S3, S4), servidores (S1,
 S4), inteligência artificial (S4) e, em S5, a busca pelo Google.
 
+% [B10] Custo da falha (deslocamento, tempo, dependência; S5 19 min, S3 20 min) repete 464-466, 474 e 528-532.
 Importante acrescentar, ainda, que a falha de se alcançar o objetivo nesta plataforma pode gerar custo
 de deslocamento (S1 foi à Secretaria), de tempo (S5 gastou 19 minutos e desistiu;
 S3 relata cerca de 20 minutos na tentativa) e de dependência (S3 depende da
@@ -370,34 +385,29 @@ tentativas de busca, de um manual em PDF e de uma pesquisa no Google.
 \begin{quadro}[!htbp]
   \caption{Resultado de cada sessão}\label{qua:sessoes-res}
   \centering\small
-  \begin{tabularx}{\textwidth}{|c|>{\raggedright\arraybackslash}p{2.2cm}|>{\raggedright\arraybackslash}X|>{\raggedright\arraybackslash}X|>{\raggedright\arraybackslash}p{2.0cm}|}\hline
-    \textbf{Sessão} & \textbf{Desfecho} & \textbf{Erros de rota e hesitações} & \textbf{Ajuda ou desistência} & \textbf{Tempo total} \\\hline
-    S1 & Chegou ao formulário, sem ajuda na sessão & Procurou ``Central de Atendimento ao Cidadão'', rolou sem achar, voltou e reabriu o menu; ``tive que entrar e sair'' & Em tentativas anteriores, ajuda de familiares e de servidores & 10 min \\\hline
-    S2 & Não localizou, pois encerrou a tentativa após explorar itens errados do catálogo & Percorreu elementos (lançamento, cancelamento, segunda via, quitação); ``não sei, não estou achando'' & Encerrou a tentativa sem concluir & 9 min \\\hline
-    S3 & Não chegou & ``Fiquei perdido'', ``tem muita informação espalhada'' & Chamou a esposa; relata cerca de 20 minutos na tentativa & 7 min \\\hline
-    S4 & Não chegou & Clicou em ``ITBI'' no catálogo, descobriu que não era o lugar, confundiu duas abas com o mesmo nome & Relata IA, familiar e atendente; na sessão, não concluiu & 10 min \\\hline
-    S5 & Não localizou, desistiu sem concluir & Ao menos cinco buscas sem chegar ao formulário; manual em PDF e \textit{Ctrl+F}; requerimentos baixados; Google; três sites alternados; visitou o Atendimento Virtual e saiu sem reconhecê-lo & Desistiu aos 19 min 37 s; reclamou dos sites do governo & 19 min 37 s \\\hline
+  \begin{tabularx}{\textwidth}{|c|>{\raggedright\arraybackslash}p{2.2cm}|>{\raggedright\arraybackslash}X|>{\raggedright\arraybackslash}X|}\hline
+    \textbf{Sessão} & \textbf{Desfecho} & \textbf{Erros de rota e hesitações} & \textbf{Ajuda ou desistência} \\\hline
+    S1 & Chegou ao formulário, sem ajuda na sessão & Procurou ``Central de Atendimento ao Cidadão'', rolou sem achar, voltou e reabriu o menu; ``tive que entrar e sair'' & Em tentativas anteriores, ajuda de familiares e de servidores \\\hline
+    S2 & Não localizou, pois encerrou a tentativa após explorar itens errados do catálogo & Percorreu elementos (lançamento, cancelamento, segunda via, quitação); ``não sei, não estou achando'' & Encerrou a tentativa sem concluir \\\hline
+    S3 & Não chegou & ``Fiquei perdido'', ``tem muita informação espalhada'' & Chamou a esposa; relata cerca de 20 minutos na tentativa \\\hline
+    S4 & Não chegou & Clicou em ``ITBI'' no catálogo, descobriu que não era o lugar, confundiu duas abas com o mesmo nome & Relata IA, familiar e atendente; na sessão, não concluiu \\\hline
+    S5 & Não localizou, desistiu sem concluir & Ao menos cinco buscas sem chegar ao formulário; manual em PDF e \textit{Ctrl+F}; requerimentos baixados; Google; três sites alternados; visitou o Atendimento Virtual e saiu sem reconhecê-lo & Desistiu aos 19 min 37 s; reclamou dos sites do governo \\\hline
   \end{tabularx}
   \fonte{Elaborado pelos autores com base em S1 a S5 (2026).}
-  \nota{Com quatro observações, não se calcula taxa de sucesso com valor inferencial. O quadro descreve o que aconteceu e não estima proporções populacionais. O tempo total é o da sessão registrado pela equipe; não separa, em S1 a S4, o tempo de tarefa do de conversa.}
+  \nota{Com quatro observações, não se calcula taxa de sucesso com valor inferencial. O quadro descreve o que aconteceu e não estima proporções populacionais.}
 \end{quadro}
 
 \textbf{(e) O que é sucesso e quanto tempo e quantas tentativas são aceitáveis.}
 Os participantes definiram sucesso pelo estado observável: ``emitir o negócio''
 (S4), ``encontrar onde emitir a guia'' (S1). Nenhum foi perguntado, de modo
 formal, quanto tempo ou quantas tentativas considera aceitável, porque o roteiro
-não cobriu isso. Assume-se, por isso, uma meta ancorada na frustração observada:
-embora não questionados, os participantes demonstraram exaustão ou desistência em
-tempos totais de sessão que variaram de 7 a quase 20 minutos de uso ineficaz,
-com S5 (19 min 37 s) como caso extremo. Com base nessa observação e na premissa
-de um serviço público digital rápido, a equipe estabeleceu como \textbf{hipótese}
-o alvo de \textbf{conclusão em até 5 minutos}, com \textbf{tolerância de no
-máximo 1 erro de rota} (cliques em itens homônimos ou em submenus errados), e
-trata o que foi observado nas sessões como limite inaceitável. A hipótese deve
-ser validada na Entrega~3. S3 deixou uma pista sobre a expectativa: queria ``os
-objetivos, mais no início da tela, sem muita dificuldade'', e S1, que o serviço
-fosse ``muito intuitivo'' já no menu Serviços.
+não cobriu isso; por isso, os alvos de tempo e de erro são hipóteses ancoradas na
+frustração observada (7 a quase 20 minutos de uso ineficaz) e estão no
+capítulo~\ref{cap:requisitos}, para validação na Entrega~3. S3 deixou uma pista
+sobre a expectativa: queria ``os objetivos, mais no início da tela, sem muita
+dificuldade'', e S1, que o serviço fosse ``muito intuitivo'' já no menu Serviços.
 
+% [B12] Item (f) antecipa personas/classes (cap. Personas e quadro de classes) e rótulos (e)/(f) não têm (a)-(d) correspondentes.
 \textbf{(f) Diferenças entre perfis.} Quatro contrastes sustentam as classes de
 contexto. Primeiro, \textit{familiaridade}: S1, S2 e S5 se mostram habituados à
 web (S5 usa busca em PDF, \textit{Ctrl+F}, e o Google como recurso) e, mesmo
@@ -423,13 +433,10 @@ a persona de baixa escolaridade tem base secundária. (iv) S3 foi entrevista, se
 observação, e seu relato de falha não foi presenciado; S5 foi só observação, sem
 entrevista. (v) Os participantes são adultos jovens ou de meia-idade com
 escolaridade média ou alta, salvo S3, e a amostra não inclui usuário de leitor de
-tela nem de dispositivo antigo ou rede instável. (vi) A inspeção com NVDA e teclado foi feita por integrante sem deficiência
-visual e simula, mas não substitui o uso real por pessoa com deficiência. A
-simulação responsiva foi feita com o modo responsivo das ferramentas de
-desenvolvedor do navegador, com \textit{viewport} de 320 px (equivalente a zoom
-de 400\% em janela inicial de 1280 px); os alvos tiveram largura e altura
-conferidas manualmente no inspetor de elementos. Essas verificações técnicas não
-substituem testes com pessoas com deficiência ou com acesso restrito. (vii) O aceite explícito está registrado em S1,
+tela nem de dispositivo antigo ou rede instável. (vi) A inspeção com NVDA e teclado
+foi feita por integrante sem deficiência visual, e as verificações de refluxo e de
+alvos foram técnicas (seção~2.3); simulam, mas não substituem, o uso real por pessoa
+com deficiência ou com acesso restrito. (vii) O aceite explícito está registrado em S1,
 S2, S3 e S4 (Apêndice~\ref{ap:consentimento}); o de S5 deve ser anotado pela equipe.
 
 
@@ -445,6 +452,7 @@ que é a que permite incluir aqui a ajuda de terceiros e os documentos exigidos.
 
 \section{Usuários}
 
+% [B12] Subseção Usuários repete a Síntese dos resultados e o item (f) (letramento, dependência de terceiros, S1/S2/S3/S5).
 Qualquer pessoa física que compre um imóvel no Distrito Federal, de vinte a
 oitenta anos, com qualquer escolaridade e qualquer grau de familiaridade com a
 web; o serviço não permite escolher o público. A frequência de uso é baixa (um
@@ -456,6 +464,7 @@ tratam-se aqui como hipótese e não como dado.
 
 \section{Metas e tarefas}
 
+% [B10] Consequência da não conclusão repete 355-358 e 528-532.
 A meta de fundo é concluir uma compra de imóvel. A meta no serviço é obter a
 guia de ITBI, que exige, nesta ordem, encontrar o caminho no portal, alcançar o
 Atendimento Virtual, autenticar-se, preencher o formulário e emitir a guia.
@@ -467,6 +476,7 @@ sobre quem tem menos tempo, mobilidade ou letramento.
 
 \section{Recursos}
 
+% [B12][B10] Subseção Recursos repete dispositivo (347), tempo S5/S3 (355-358; linha 474) e documentos desconhecidos (351).
 \textbf{Dispositivo:} computador (S1, S2, S3), notebook (S5) e celular (S4); o celular é o
 dispositivo predominante de acesso à internet no país \cite{ticdomicilios},
 e S4 declara usar ``geralmente celular'' para sites de governo. \textbf{Conexão e
@@ -480,6 +490,7 @@ Secretaria, e uma ferramenta de IA (S4).
 
 \section{Ambiente}
 
+% [B11][B9] Ambiente: três subdomínios (ver 257-262, A2) e atendimento presencial/roteiro impresso (ver 271, 339-345).
 \textbf{Técnico:} três subdomínios com cabeçalhos, menus e identidade visual
 diferentes (Figura~\ref{fig:achado2}), menu \textit{dropdown} de dois níveis no
 portal institucional e catálogo de três colunas na Receita. \textbf{Físico:} em
@@ -507,6 +518,7 @@ autoexplicativo.
     \textbf{Início}            & Página inicial \texttt{economia.df.gov.br}, sem login (cenário das observações S1, S2, S4 e S5). Entradas por busca externa ou por link recebido não foram avaliadas. \\\hline
     \textbf{Término (estado observável)} & Formulário ``Atendimento Virtual -- Registrar solicitação'' exibido, com Assunto = ITBI (marca de verificação verde) e o campo ``Tipo de Atendimento'' ainda em ``Selecione'' (Figura~\ref{fig:fluxo-form}). \\\hline
     \textbf{Fora do escopo}    & Criação de conta e login; escolha do Tipo de Atendimento e preenchimento do formulário; emissão e pagamento da guia; etapas presenciais; os demais serviços ITBI do catálogo (cancelamento, impugnação, restituição, quitação, isenção). \\\hline
+% [B13] "Etapas no fluxo atual" (3 etapas, 5 subtarefas) repete a introdução da HTA (~633-639) e o resumo.
     \textbf{Etapas no fluxo atual} & Três etapas, com cinco subtarefas-folha (1.1, 1.2, 1.3, 2.1 e 3.1), ou seja, cinco cliques em quatro carregamentos de página, se o caminho previsto na HTA for seguido sem erro. O caminho observado em S1, pelo catálogo, exige sete cliques. \\\hline
   \end{tabularx}
   \fonte{Elaborado pelos autores (2026).}
@@ -523,13 +535,13 @@ são o corpus de evidência deste relatório.
 
 \section{Justificativa}
 
+% [B13][B10] Justificativa repete "4 de 5 não chegaram", S5 19 min 37 s e consequência da falha (ver 355-358, 464-466).
 Foram usados dois dos quatro critérios do enunciado.
 
 \textbf{Consequência da falha.} A guia é pré-requisito de uma transação de alto
 valor, e a não conclusão obriga a pessoa a se deslocar (S1) ou a depender de
-terceiros (S1, S3, S4). O serviço não tem alternativa equivalente: S3 foi
-informado de que ``não adiantava ir pessoalmente'', e S1 e S4 voltaram do
-atendimento presencial com a instrução de usar o site.
+terceiros (S1, S3, S4). O serviço não tem alternativa equivalente: o atendimento
+presencial devolve a pessoa ao site (S1, S3 e S4; capítulo~\ref{cap:levantamento}).
 
 \textbf{Evidência de dificuldade observada.} Em todas as cinco sessões os participantes relataram ou demonstraram dificuldade; quatro de cinco não chegaram ao formulário (Quadro~\ref{qua:sessoes-res}), S5 desistiu após 19 min 37 s e reclamou dos sites do governo, e as palavras mais repetidas foram ``confuso'' (S1, S2, S3, S4), ``escondido'' (S2, S3) e ``intuitivo'', sempre negado (S1, S2, S4). Nem a frequência nem a
 irreversibilidade foram usadas: não há dado sobre o volume de emissões, e o erro
@@ -541,6 +553,7 @@ de \textbf{custo alto por falha de descoberta, e não por erro irreversível}.
 % =====================================================================
 
 As personas seguem a recomendação de \citeonline{cooper1999} de que se rastreiem
+% [B14] "Hipótese de projeto" repetida em quase toda célula das personas 4-6; o parágrafo e o quadro de cobertura (~610) repetem a mesma informação.
 a dados, e não a estereótipos. Sete personas cobrem os quatro perfis obrigatórios (idosa, baixa escolaridade, leitor de tela e acesso precário) e três perfis complementares. \textbf{As personas 1, 2, 3 e 7 têm base primária} (sessões S1 a S5); as demais têm base secundária (personas 4, 5 e 6) e seus traços são \textbf{hipóteses de projeto}, que devem
 ser validadas nas Entregas 2 e 3. Os nomes são fictícios.
 
@@ -550,7 +563,7 @@ ser validadas nas Entregas 2 e 3. Os nomes são fictícios.
   {C2 (eventual com baixo letramento digital, dependente de apoio).}%
   {Emitir a guia de ITBI de um imóvel pelo site, porque lhe disseram que ``agora é tudo por lá''.}%
   {Computador em casa; ensino médio completo (S3); sem conta ou documentos conhecidos de antemão; tempo para tentar cerca de 20 minutos; apoio da esposa, que ``tem mais paciência para mexer nessas coisas de internet''.}%
-  {Entrou ``direto no site da Secretaria'' (S3); procurou onde ficava ``a parte de imposto'' (S3); ``me confundi com esse tanto de botão'' (S3); ``as letras às vezes são pequenas'' (S3); ``as coisas ficam escondidas'' (S3); desistiu após cerca de 20 minutos e pediu ajuda à esposa (S3); quer ``os objetivos mais no início da tela'' (S3).}%
+  {Entrou ``direto no site da Secretaria'' e procurou ``a parte de imposto'' (S3); sentiu-se perdido com ``esse tanto de botão'', com letras pequenas e com informação escondida (S3); desistiu após cerca de 20 minutos e pediu ajuda à esposa (S3); quer ``os objetivos mais no início da tela'' (S3).}%
   {Excesso de opções de menu, texto pequeno, rótulos que não nomeiam a tarefa, falta de caminho direto.}
 
 \persona{2}{Júlia, 19 anos, usuária de celular}%
@@ -559,7 +572,7 @@ ser validadas nas Entregas 2 e 3. Os nomes são fictícios.
   {C3 (acesso ou percepção restrita: tela pequena).}%
   {Pagar o imposto de um imóvel comprado; já lidou com compra, venda e recebimento de imóveis.}%
   {Celular, em casa; cursando ensino superior (S4); usa ``o que estiver mais perto'', ``geralmente celular'' (S4); roteiro em papel recebido do atendimento; apoio de familiares, do atendente e de uma IA.}%
-  {Recebeu ``um papelzinho'' do atendimento com o fluxo (S4); pesquisou e tentou uma IA para entender a tela (S4); clicou no ``ITBI'' do catálogo e descobriu que ``não era aquele lugar'' (S4); ``duas abas diferentes com o mesmo nome'' (S4); não sabia os documentos e ``foi descobrindo'' com o atendente (S4); ``não consegui emitir'' (S4); ``frustrada e decepcionada'' (S4). A inspeção técnica confirmou, em 320 px, rolagem horizontal bidirecional e sobreposição de texto nos menus secundários, além de alvos menores que 24 por 24 px (A12); essas barreiras ainda não foram testadas com uma usuária real.}%
+  {Recebeu ``um papelzinho'' do atendimento com o fluxo, tentou uma IA e pediu ajuda a familiares e ao atendente (S4); clicou no ``ITBI'' do catálogo e descobriu que ``não era aquele lugar'', diante de ``duas abas diferentes com o mesmo nome'' (S4); não sabia os documentos (S4); não conseguiu emitir e ficou ``frustrada e decepcionada'' (S4). A inspeção técnica a 320 px e a medição de alvos (A12) confirmaram barreiras que ainda não foram testadas com uma usuária real.}%
   {Homonímia de ITBI, excesso de informação, botões sem sentido aparente, falta de lista de documentos, refluxo inadequado e alvos pequenos confirmados por inspeção (A12).}
 
 \persona{3}{Camila, familiarizada com a web}%
@@ -604,9 +617,10 @@ ser validadas nas Entregas 2 e 3. Os nomes são fictícios.
   {C1 (familiarizado com a web).}%
   {Encontrar o formulário para emissão da guia de ITBI.}%
   {Notebook; ensino superior incompleto (S5); disposto a gastar quase 20 minutos; usa o Google, manuais em PDF e \textit{Ctrl+F} como recursos.}%
-  {A busca é seu primeiro reflexo (S5, 00:00 e 00:33); ``a barra de pesquisa não funciona?'' (S5, 00:33 e 02:10); perguntou o que é ITBI (S5, 00:40); escolheu Serviços, Serviços da Receita, Para o Cidadão porque ``preciso de um serviço e sou cidadão'' (S5, 02:06); seguiu a busca até um manual em PDF e usou \textit{Ctrl+F} (S5, 03:14 a 05:40); baixou requerimentos e questionou o formato (S5, 08:22); recorreu ao Google (S5, 14:59); visitou o Atendimento Virtual e saiu sem reconhecê-lo (S5, 18:44); reclamou dos sites do governo e desistiu (S5, 18:28 e 19:37).}%
+  {A busca é seu primeiro reflexo e, como não funciona, pergunta se ``a barra de pesquisa não funciona?''; pergunta o que é ITBI; chega à Receita por Serviços, Serviços da Receita, Para o Cidadão porque ``preciso de um serviço e sou cidadão''; segue a busca até um manual em PDF, usa \textit{Ctrl+F}, baixa requerimentos e recorre ao Google; visita o Atendimento Virtual e sai sem reconhecê-lo; reclama dos sites do governo e desiste aos 19 min 37 s (S5; cronologia na Tabela~\ref{tab:s5}).}%
   {Busca que devolve documentos e não o formulário; sigla desconhecida; alternância entre três sites; rota correta não reconhecida mesmo quando exibida.}
 
+% [B14] Quadro de cobertura repete parágrafo 544, quadro de classes (cap. Requisitos) e limitações (iii)/(v) (420-426) na nota.
 \noindent\textbf{Cobertura dos perfis obrigatórios.}
 
 \begin{quadro}[!htbp]
@@ -630,6 +644,7 @@ ser validadas nas Entregas 2 e 3. Os nomes são fictícios.
 
 % =====================================================================
 
+% [B13] Intro da HTA repete a delimitação (3 etapas, 5 subtarefas) e a decomposição do Quadro do fluxo.
 A HTA decompõe o fluxo da seção~\ref{cap:fluxo} em objetivo geral, subtarefas
 e planos de execução, na linha de \citeonline{annett1967} e
 \citeonline{stanton2005}. O objetivo geral (0) é acessar o formulário de emissão
@@ -651,13 +666,15 @@ ou pedido de ajuda (A).
     \textbf{Plano} & \textbf{Regra de execução} & \textbf{Falhas observadas} \\\hline
     Plano 0 & Fazer 1, depois 2, depois 3. Encerrar quando o formulário for exibido. & Abandono ou pedido de ajuda na etapa 2: S2, S3, S4 e S5 não chegaram ao formulário. \\\hline
     Plano 1 & Fazer 1.1, depois 1.2, depois 1.3. Encerrar quando a página ``Para o Cidadão'' da Receita for exibida, com a faixa de botões (Serviços On-line, Agênci@net, Atendimento Virtual, Legislação) e o catálogo. & Hesitação em 1.1 (S1: procura ``serviços'' e escolhe o item errado); erro de rota em 1.2 (S1: volta e reabre); hesitação na etapa por excesso de opções (S3, S4, S5; S5 recorreu à busca e ao Google). \\\hline
-    Plano 2 & Fazer 2.1 (botão ``Atendimento Virtual'' no topo da página da Receita). Variante observada em S1 (2.1'): do catálogo, abrir o item ITBI, depois ``Transmissão Onerosa -- Lançamento de ITBI'', e usar o link para o Atendimento Virtual dentro do texto do serviço. & Hesitação em 2 (S2: não pensou no canal ``Atendimento Virtual''); erro de rota em 2.1 (S2: itens errados do catálogo); S5 visitou o Atendimento Virtual aos 18 min 44 s e saiu sem reconhecê-lo; S1 só chegou pela variante 2.1'. \\\hline
+    Plano 2 & Fazer 2.1 (botão ``Atendimento Virtual'' no topo da página da Receita). Variante observada em S1 (2.1'): do catálogo, abrir o item ITBI, depois ``Transmissão Onerosa -- Lançamento de ITBI'', e usar o link para o Atendimento Virtual dentro do texto do serviço. & Hesitação em 2 (S2: não pensou no canal ``Atendimento Virtual''); erro de rota em 2.1 (S2: itens errados do catálogo); S5 visitou o Atendimento Virtual e saiu sem reconhecê-lo; S1 só chegou pela variante 2.1'. \\\hline
     Plano 3 & Fazer 3.1 (cartão ITBI, em Pessoa Física). & Erro de rota (S4: confundiu o ``ITBI'' do catálogo com o ``ITBI'' do Atendimento Virtual). \\\hline
   \end{tabularx}
   \fonte{Elaborado pelos autores (2026).}
+% [B15] Nota de correção do Plano 1 é histórico de versão da HTA; não precisa constar no relatório final.
   \nota{O Plano 1 da primeira versão da HTA encerrava com ``o site da Secretaria de Economia exibido'', o que é satisfeito já no ponto de partida. Corrigiu-se para um estado observável distinto: a página da Receita com a faixa de botões visível.}
 \end{quadro}
 
+% [B15] "Leitura crítica" reescreve o que o Quadro de planos e a Síntese dos resultados já mostram (etapa 2 concentra falhas; caminho 2.1').
 \textbf{Leitura crítica.} Três pontos merecem destaque. Primeiro, a etapa que
 concentra as falhas é a 2, e não a 1: quatro das cinco pessoas navegaram os menus (etapa 1) e ainda assim não chegaram ao Atendimento Virtual (etapa 2) ou, em S5, chegaram e o deixaram sem reconhecê-lo, porque o
 botão que as levaria até lá nomeia um \textbf{canal} e elas procuravam uma
@@ -681,16 +698,7 @@ fluxo é de descoberta e de vocabulário, e não de extensão.
 \chapter{Diagnóstico}\label{cap:diagnostico}
 % =====================================================================
 
-O diagnóstico reúne doze achados. Eles se apoiam em uma ou mais capturas de tela numeradas (Figuras~\ref{fig:achado1} a~\ref{fig:achado10}; os achados A11 e A12 remetem às telas já numeradas) e em um ou mais
-princípios nomeados: \citeonline{norman2013} (golfos de execução e de avaliação,
-significantes, mapeamento, \textit{feedback}, consistência, prevenção de erro,
-reconhecimento em vez de recordação), as leis da Gestalt (proximidade,
-similaridade, figura e fundo), a Lei de Fitts \cite{fitts1954} e a Lei de
-Hick--Hyman \cite{hick1952}. Os achados vêm de inspeção heurística das cinco
-telas e, quando há dado de sessão, da observação de uso (S1 a S5) e da inspeção complementar com NVDA e teclado; não houve
-acesso a reclamações públicas nem a registros de ouvidoria. O
-Quadro~\ref{qua:achados1} e o Quadro~\ref{qua:achados2} resumem os achados; a
-discussão segue abaixo.
+O diagnóstico reúne doze achados, apoiados em capturas de tela numeradas (Figuras~\ref{fig:achado1} a~\ref{fig:achado10}; os achados A11 e A12 remetem às telas já numeradas). Eles vêm de inspeção heurística das cinco telas e, quando há dado de sessão, da observação de uso (S1 a S5) e da inspeção complementar com NVDA e teclado; não houve acesso a reclamações públicas nem a registros de ouvidoria. Os princípios violados (\citeonline{norman2013}, Gestalt, Lei de Fitts \cite{fitts1954} e Lei de Hick--Hyman \cite{hick1952}), a origem e o impacto nas personas de cada achado estão nos Quadros~\ref{qua:achados1} e~\ref{qua:achados2}; a discussão segue abaixo.
 
 \fig[0.95]{achado1}{a1_menu.png}{Achado A1: menu Serviços com oito itens no primeiro nível e cinco no segundo, sem nenhum rótulo que nomeie a tarefa}{\capt{} (\texttt{economia.df.gov.br}).}
 
@@ -702,10 +710,7 @@ Parceiros e Agendar Atendimento Presencial. Ninguém que procura ``emitir guia''
 encontra essas palavras, e o item ``Atendimento'' (que abre um submenu) é
 facilmente confundido com o Atendimento Virtual que se procura, que está em
 outro lugar (S1 procurou ``Central de Atendimento ao Cidadão'', rolou a página e não achou nada).
-Princípios: \textit{golfo de execução} de Norman (a pessoa sabe o que quer, mas
-não sabe qual ação o sistema espera), Lei de Hick--Hyman (o tempo de decisão
-cresce com o número de alternativas) e, como \textbf{hipótese ainda não
-verificada}, a Lei de Fitts: o submenu só se mantém aberto se o ponteiro
+Como \textbf{hipótese ainda não verificada} (Lei de Fitts), o submenu só se mantém aberto se o ponteiro
 percorre o trajeto na diagonal sem sair do item, comportamento que a captura estática não permite confirmar. Na inspeção por teclado, o problema é maior: o menu Serviços só se abre com o ponteiro (\textit{hover}); o submenu com Serviços da Receita e Para o Cidadão não abre com Tab, e o NVDA anuncia apenas ``Serviços, link'', sem informar que é um menu retrátil nem seu estado (achado A11).
 
 \fig[0.95]{achado2}{c_cabecalhos.png}{Achado A2: três cabeçalhos, três identidades visuais e três domínios em um único fluxo}{\capt{} (cabeçalhos de \texttt{economia.df.gov.br}, \texttt{receita.fazenda.df.gov.br} e \texttt{atendimentovirtual.fazenda.df.gov.br}).}
@@ -715,9 +720,8 @@ o cabeçalho, a tipografia, a posição do ``Entrar'' (texto simples no portal,
 botão escuro na Receita, campo CPF/CNPJ com dois botões claros no Atendimento
 Virtual) e desaparece a barra ``Acessibilidade | Aa'', presente nos dois
 primeiros. A pessoa que clica em um menu e cai em outro site perde a
-referência de onde está. Princípios: consistência de Norman, \textit{feedback} de
-localização e Gestalt de similaridade: elementos que devem agrupar-se como parte
-do mesmo serviço não compartilham a mesma forma.
+referência de onde está: elementos que devem agrupar-se como parte do mesmo
+serviço não compartilham a mesma forma.
 
 \fig[0.95]{achado3}{a3_catalogo.png}{Achado A3: catálogo da Receita para o item ITBI, com dez serviços nomeados pelo ato jurídico}{\capt{} (\texttt{receita.fazenda.df.gov.br}).}
 
@@ -730,11 +734,8 @@ Débitos). \textbf{Nenhum diz ``emitir guia''}, a ação que as cinco pessoas pr
 e S1 só o reconheceu ao ler a página (``Transmissão onerosa, lançamento de
 ITBI. Acredito que seja essa opção''). S2 examinou, em voz alta, lançamento,
 ``segunda via'', ``cancelamento de guia'' e ``termos de quitação'' sem saber se
-um deles era o procurado (``não é nenhum pouco intuitivo''). Princípios:
-\textit{mapeamento} e golfo de execução (o vocabulário do sistema não mapeia o
-vocabulário do usuário), \textit{reconhecimento em vez de recordação} (exige
-conhecer o termo técnico) e Hick--Hyman (dez alternativas em duas colunas). O
-impacto é maior nas personas 1, 2 e 4.
+um deles era o procurado (``não é nenhum pouco intuitivo''): o vocabulário do
+sistema não mapeia o vocabulário do usuário.
 
 \fig[0.95]{achado4}{a4_contraste.png}{Achado A4: razões de contraste medidas nas capturas do catálogo e do formulário}{\capt{}; razões calculadas pelos autores com a fórmula da WCAG 2.2 \cite{wcag22}.}
 
@@ -747,9 +748,7 @@ interface e estados (1.4.11). O item selecionado e a aba ativa, que deveriam
 dizer ``você está aqui'', são \textbf{menos visíveis que os itens não
 selecionados} e parecem desabilitados (a figura e o fundo se confundem). S1
 disse, sem ser perguntada sobre cor, que o site é ``muito opaco'' e ``poderia ter
-mais vida''. Princípios: \textit{feedback} e \textit{significante} de Norman
-(o estado não é percebido), Gestalt de figura e fundo e, em acessibilidade,
-1.4.3 e 1.4.11. As razões são preliminares e devem ser reconferidas com
+mais vida''. As razões são preliminares e devem ser reconferidas com
 ferramenta automática na inspeção (RA02 e RA03).
 
 \fig[1.0]{achado5}{a5_faixa.png}{Achado A5: o caminho correto (Atendimento Virtual) é um entre quatro botões de mesmo peso, abaixo de um banner de maior destaque}{\capt{} (\texttt{receita.fazenda.df.gov.br}).}
@@ -760,9 +759,8 @@ ITBI; abaixo, quatro botões idênticos (Serviços On-line, Agênci@net,
 Atendimento Virtual, Legislação e Publicações) em MAIÚSCULAS, sem ícone, em
 cinza escuro. O botão do qual depende a conclusão é um dos quatro e usa o
 nome do canal. S2 registra a consequência: não pensou em ``Atendimento
-Virtual'' para uma tarefa tributária, e S3 e S4 não chegaram a ele. Princípios:
-Gestalt de similaridade e de proximidade (itens idênticos são lidos como
-equivalentes), hierarquia visual e Hick--Hyman. O texto em maiúsculas também reduz a legibilidade em frases mais longas. S5 confirma o efeito no extremo: visitou o Atendimento Virtual aos 18 min 44 s e saiu em poucos segundos, sem identificar que era o que procurava.
+Virtual'' para uma tarefa tributária, e S3 e S4 não chegaram a ele. Como os quatro
+botões são idênticos, são lidos como equivalentes. O texto em maiúsculas também reduz a legibilidade em frases mais longas. S5 confirma o efeito no extremo: visitou o Atendimento Virtual e saiu em poucos segundos, sem identificar que era o que procurava.
 
 \fig[0.95]{achado6}{c_itbi.png}{Achado A6: ``ITBI'' designa o item do catálogo, o cartão do Atendimento Virtual e o assunto do formulário}{\capt{} (\texttt{receita.fazenda.df.gov.br} e \texttt{atendimentovirtual.fazenda.df.gov.br}).}
 
@@ -772,10 +770,7 @@ do Atendimento Virtual (que leva ao formulário); e, no nível 3, o assunto
 dentro do formulário. S4 disse não entender ``por que existia duas abas
 diferentes com o mesmo nome, sendo que uma é muito mais simples e faz muito mais
 sentido''. Além disso, os cartões ITBI e ITCD têm a sigla como único texto (``ITCD''
-nem é expandida), exigindo recordação do que significam. Princípios:
-\textit{modelo conceitual} e consistência de Norman (um nome, um referente),
-\textit{reconhecimento em vez de recordação} e, no caso das siglas, o uso de
-termo técnico sem tradução, que pesa mais para a persona 4. Em S5 a sigla também foi um obstáculo: o participante interrompeu a busca para perguntar o que significa ITBI. Na inspeção com NVDA, ITBI e ITCD são lidas letra por letra, sem expansão (\textit{abbr}) ou alternativa, e os cartões são imagens com o texto embutido e sem texto alternativo (RA10).
+nem é expandida), exigindo recordação do que significam, o que pesa mais para a persona 4. Em S5 a sigla também foi um obstáculo: o participante interrompeu a busca para perguntar o que significa ITBI. Na inspeção com NVDA, ITBI e ITCD são lidas letra por letra, sem expansão (\textit{abbr}) ou alternativa, e os cartões são imagens com o texto embutido e sem texto alternativo (RA10).
 
 \fig[0.95]{achado7}{a7_busca.png}{Achado A7: duas buscas disponíveis (Receita e Atendimento Virtual), ignoradas em S1 a S4 e sem êxito em S5}{\capt{}.}
 
@@ -785,19 +780,14 @@ IPVA'' e o Atendimento Virtual oferece ``Procure aqui o atendimento desejado''.
 Em S1 a S4, \textbf{nenhum participante cita ou usa a busca}; todos navegaram por
 menus e cartões, e o roteiro não perguntou por quê. Em S5 foi o contrário: a busca
 foi o primeiro reflexo (``instinto primário''), repetida ao menos cinco vezes em
-sites diferentes (00:00, 00:33, 02:10, 11:32 e 19:00), e \textbf{sempre devolveu
-conteúdo relacionado ao ITBI (manuais e requerimentos em PDF), nunca o formulário}.
-O participante perguntou duas vezes se ``a barra de pesquisa não funciona'', abriu
-o manual, recorreu a \textit{Ctrl+F} dentro do PDF, baixou requerimentos,
-pesquisou no Google e acabou desistindo aos 19 min 37 s. A desorientação foi tamanha
-que a busca interna de um PDF e a busca externa foram mais usadas que a navegação
-do próprio portal. Princípios: \textit{significante} (a busca não se anuncia como
-atalho para quem não a tentou), \textit{mapeamento} e golfo de avaliação (o
-resultado não corresponde à intenção ``emitir guia'', e o usuário não sabe se errou
-a consulta ou se a busca falha) e Hick--Hyman (uma busca eficaz trocaria N
-alternativas por um campo). A hipótese para S1 a S4 é baixa descoberta (o campo da
-Receita fica abaixo do banner e dos quatro botões); a de S5, baixa precisão. Ambas
-devem ser testadas na Entrega~2.
+sites diferentes, e \textbf{sempre devolveu conteúdo relacionado ao ITBI (manuais e
+requerimentos em PDF), nunca o formulário}. O participante perguntou duas vezes se
+``a barra de pesquisa não funciona'' e acabou desistindo aos 19 min 37 s, depois de
+recorrer a \textit{Ctrl+F} no PDF e ao Google (Tabela~\ref{tab:s5}). A
+desorientação foi tamanha que a busca interna de um PDF e a busca externa foram
+mais usadas que a navegação do próprio portal. A hipótese para S1 a S4 é baixa
+descoberta (o campo da Receita fica abaixo do banner e dos quatro botões); a de S5,
+baixa precisão. Ambas devem ser testadas na Entrega~2.
 
 \fig[0.95]{achado8}{a8_login.png}{Achado A8: o aviso de login aparece só no Atendimento Virtual, entre seis botões de ação e uma busca}{\capt{} (\texttt{atendimentovirtual.fazenda.df.gov.br}).}
 
@@ -807,11 +797,9 @@ ou três páginas. S1 só soube que precisava de CPF e senha no último passo (`
 o CPF e senha''), e S1 e S4 não sabiam quais documentos levar e descobriram
 perguntando a atendentes. Existe um botão ``Passo a Passo'', mas ele é o sexto de
 seis verbos com o mesmo peso (Registrar Solicitação, Consultar, Reabrir,
-Complementar, Avaliar, Passo a Passo). Princípios: \textit{feedback} e
-visibilidade do estado do sistema (o usuário não sabe o que vem), golfo de
-avaliação e prevenção de erro (informar o pré-requisito antes de o usuário
-investir tempo). É o achado que mais pesa para quem tem pouco tempo, ou seja,
-as personas 1, 3 e 6. Na inspeção com NVDA, o aviso de login passa despercebido se a pessoa salta direto ao campo de busca por atalho de teclado.
+Complementar, Avaliar, Passo a Passo). Informar o pré-requisito antes de o usuário
+investir tempo é, por isso, o ponto mais sensível para quem tem pouco tempo
+(personas 1, 3 e 6). Na inspeção com NVDA, o aviso de login passa despercebido se a pessoa salta direto ao campo de busca por atalho de teclado.
 
 \fig[0.78]{achado9}{a9_form.png}{Achado A9: formulário com dois seletores dependentes, asterisco claro de obrigatoriedade e editor de texto com mais de uma dezena de botões}{\capt{} (\texttt{atendimentovirtual.fazenda.df.gov.br}).}
 
@@ -823,10 +811,7 @@ sem pré-seleção. Obrigatório é indicado por um asterisco vermelho claro,
 quase invisível; ``Selecione o tipo de documento do usuário'' tem três botões de
 opção sem marca de obrigatoriedade e a Descrição abre um editor de texto com
 mais de uma dezena de botões, vários de ícone, entre eles ``</>'' e ``?'', sem rótulo, para uma
-solicitação de uma linha. O texto de ajuda, em azul claro, mede 2,61:1.
-Princípios: Hick--Hyman (muitos controles), \textit{significantes} e
-\textit{restrições} de Norman (o ícone não diz o que faz; a obrigatoriedade
-não é percebida), \textit{prevenção de erro} e, em acessibilidade, 3.3.2 e 1.4.3. Na inspeção por teclado, o foco \textbf{fica preso} no editor da Descrição (Tab e Shift+Tab não saem dele), o que viola o critério 2.1.2, e a barra de formatação exige dezenas de toques de Tab antes de chegar à área de digitação. O NVDA lê os ícones como ``Botão'', sem nome, e o asterisco de obrigatoriedade não está associado programaticamente ao campo (sem \texttt{aria-required}): ``E-mail, edição, em branco'' não avisa que o preenchimento é obrigatório.
+solicitação de uma linha. O texto de ajuda, em azul claro, tem contraste insuficiente (A4). Na inspeção por teclado, o foco \textbf{fica preso} no editor da Descrição (Tab e Shift+Tab não saem dele), o que viola o critério 2.1.2, e a barra de formatação exige dezenas de toques de Tab antes de chegar à área de digitação. O NVDA lê os ícones como ``Botão'', sem nome, e o asterisco de obrigatoriedade não está associado programaticamente ao campo (sem \texttt{aria-required}): ``E-mail, edição, em branco'' não avisa que o preenchimento é obrigatório.
 
 \fig[0.7]{achado10}{c_governo.png}{Achado A10: ``Governo e Parceiros'' no menu e ``Governos e Parceiros'' na aba}{\capt{}.}
 
@@ -834,8 +819,7 @@ não é percebida), \textit{prevenção de erro} e, em acessibilidade, 3.3.2 e 1
 ``Governo e Parceiros''; a aba equivalente na Receita, ``Governos e
 Parceiros''. A diferença é pequena (um \textit{s}) e a consequência também, mas
 indica ausência de um vocabulário controlado, a mesma causa raiz dos achados A3
-e A6. Princípios: consistência e padronização de Norman, e o critério 3.2.4 da WCAG
-(identificação consistente).
+e A6 (critério 3.2.4 da WCAG, identificação consistente).
 
 \textbf{A11. O fluxo previsto não pode ser percorrido por teclado nem lido com
 confiança por leitor de tela.} A inspeção complementar com NVDA e teclado
@@ -850,15 +834,13 @@ cartões são imagens com texto embutido, sem texto alternativo, em
 \texttt{div} sem \texttt{tabindex} nem \texttt{role="button"}, de modo que Tab os
 salta e a pessoa não consegue selecionar o ITBI; (iv) no formulário, o editor de
 texto prende o foco. Em consequência, as etapas 1.1, 2.1 e 3.1 da HTA são
-inoperantes para quem não usa mouse. Princípios: \textit{restrições} e
-mapeamento de Norman (o ponteiro é o único modo de operar) e \textit{prevenção de
-erro}; na WCAG, 1.3.1, 2.1.1, 2.1.2, 2.4.3, 2.4.7 e 4.1.2. Evidência: as telas das
+inoperantes para quem não usa mouse. Evidência: as telas das
 Figuras~\ref{fig:achado1}, \ref{fig:achado6} e~\ref{fig:achado9}. Como a inspeção
 foi feita por integrante sem deficiência visual, o achado indica falha técnica e
 não mede a dificuldade real de quem usa leitor de tela, o que depende de teste com
 essas pessoas (limitação (vi), seção~\ref{sec:limitacoes}).
 
-\textbf{A12. A interface não se adapta a 320 px e há alvos menores que o mínimo.} Na simulação responsiva com o \textit{viewport} do navegador ajustado para 320 px, condição equivalente a zoom de 400\% em uma janela inicial de 1280 px, observou-se rolagem horizontal bidirecional nas tabelas, nos formulários legados e no cabeçalho estático, além de sobreposição de texto nos menus secundários. Na medição manual das dimensões dos alvos interativos no inspetor de elementos do navegador, ficaram abaixo de 24\,$\times$\,24 px os links secundários do catálogo da Receita, os ícones de ação e a paginação nos cartões do Atendimento Virtual e os botões de fonte e contraste no topo do portal. Princípios: Lei de Fitts e critérios 1.4.10 (refluxo) e 2.5.8 (tamanho do alvo) da WCAG 2.2. A simulação e as medições confirmam barreiras técnicas, mas não substituem a avaliação com usuários. Evidência: Figuras~\ref{fig:achado1}, \ref{fig:achado2}, \ref{fig:achado3}, \ref{fig:achado5}, \ref{fig:achado8} e~\ref{fig:achado9}.
+\textbf{A12. A interface não se adapta a 320 px e há alvos menores que o mínimo.} Na simulação responsiva a 320 px (seção~2.3), observou-se rolagem horizontal bidirecional nas tabelas, nos formulários legados e no cabeçalho estático, além de sobreposição de texto nos menus secundários. Na medição manual dos alvos interativos (seção~2.3), ficaram abaixo de 24\,$\times$\,24 px os links secundários do catálogo da Receita, os ícones de ação e a paginação nos cartões do Atendimento Virtual e os botões de fonte e contraste no topo do portal. A simulação e as medições confirmam barreiras técnicas, mas não substituem a avaliação com usuários. Evidência: Figuras~\ref{fig:achado1}, \ref{fig:achado2}, \ref{fig:achado3}, \ref{fig:achado5}, \ref{fig:achado8} e~\ref{fig:achado9}.
 
 \begin{landscape}
 \begin{quadro}[!htbp]
@@ -911,28 +893,7 @@ expor a busca, informar pré-requisitos), antes das visuais.
 
 \section{Inconsistências internas}\label{sec:padr-int}
 
-Três comparações lado a lado já foram apresentadas como evidência de
-diagnóstico e são retomadas aqui sob o ângulo da padronização.
-
-\begin{itemize}
-  \item \textbf{Cabeçalho e conta} (Figura~\ref{fig:achado2}). A ação ``Entrar''
-    tem três formas (texto, botão-pílula escuro, campo com dois botões claros) e
-    posições diferentes; a barra de acessibilidade, que existe nos dois primeiros
-    sites, não existe no terceiro, que é onde está o formulário. Uma
-    ferramenta de acessibilidade presente em dois terços do fluxo e ausente
-    exatamente onde a pessoa preenche dados é uma inconsistência funcional, e
-    não apenas estética.
-  \item \textbf{Mesmo rótulo, referentes diferentes} (Figura~\ref{fig:achado6}). Os
-    três ``ITBI'' têm três aparências: linha de lista cinza, cartão azul com
-    ícone, seletor de formulário. A recomendação de Norman é que um mesmo nome
-    aponte para o mesmo conceito; aqui aponta para três.
-  \item \textbf{Mesmo destino, dois nomes} (Figura~\ref{fig:achado10}).
-    ``Governo e Parceiros'' e ``Governos e Parceiros''.
-\end{itemize}
-
-Há ainda uma inconsistência de \textbf{estado}: o item ativo da lista e a aba ativa
-são os de menor contraste (Figura~\ref{fig:achado4}), o oposto do que a
-convenção de interfaces estabelece (o ativo se destaca do inativo).
+Três comparações lado a lado, já apresentadas no diagnóstico (A2, A6, A10 e A4), são retomadas sob o ângulo da padronização. A ação ``Entrar'' tem três formas e posições diferentes, e a barra de acessibilidade, presente nos dois primeiros sites, não existe no terceiro, que é onde está o formulário (Figura~\ref{fig:achado2}): uma ferramenta presente em dois terços do fluxo e ausente exatamente onde a pessoa preenche dados é uma inconsistência funcional, e não apenas estética. Os três ``ITBI'' têm três aparências (Figura~\ref{fig:achado6}), mas a recomendação de Norman é que um mesmo nome aponte para o mesmo conceito; ``Governo e Parceiros'' e ``Governos e Parceiros'' nomeiam o mesmo destino (Figura~\ref{fig:achado10}); e há ainda uma inconsistência de \textbf{estado}, pois o item ativo da lista e a aba ativa são os de menor contraste (Figura~\ref{fig:achado4}), o oposto do que a convenção de interfaces estabelece (o ativo se destaca do inativo).
 
 \section{Aderência ao DSGov}
 
@@ -951,10 +912,10 @@ e não de não conformidade formal.
     \textbf{Elemento} & \textbf{Esperado pelo padrão (princípio)} & \textbf{Observado no fluxo} \\\hline
     Cabeçalho e identidade & Estrutura única de cabeçalho em todo o serviço, com barra de acessibilidade & Três cabeçalhos; barra de acessibilidade ausente no Atendimento Virtual (A2) \\\hline
     Menu & Itens que descrevem destinos de forma consistente & Itens por canal e por categoria; ``Atendimento'' e ``Atendimento Virtual'' coexistem (A1, A5) \\\hline
-    Abas e estado ativo & Estado ativo distinguível, com contraste suficiente & Aba ativa e item ativo com 1,69:1 e 1,35:1 (A4) \\\hline
+    Abas e estado ativo & Estado ativo distinguível, com contraste suficiente & Aba ativa e item ativo com contraste abaixo do mínimo (A4) \\\hline
     Cores e contraste & Combinações que atendam o nível AA & Pares abaixo de 3:1 em texto e em estado (A4, A9) \\\hline
     Busca & Campo de busca visível e funcional como atalho & Existe, em duas versões diferentes; ignorado em S1 a S4 e sem êxito em S5 (A7) \\\hline
-    Formulário & Rótulo visível, indicação clara de obrigatoriedade, ajuda legível & Rótulo visível, mas asterisco claro, ajuda a 2,61:1, ícones sem rótulo (A9) \\\hline
+    Formulário & Rótulo visível, indicação clara de obrigatoriedade, ajuda legível & Rótulo visível, mas asterisco claro, ajuda de baixo contraste, ícones sem rótulo (A9) \\\hline
     Mensagens e \textit{feedback} & Aviso de pré-requisito antes da ação & Login informado só no Atendimento Virtual (A8) \\\hline
     Vocabulário & Termos controlados e na linguagem do cidadão & Termos jurídicos e três referentes para ``ITBI'' (A3, A6, A10) \\\hline
   \end{tabularx}
@@ -1008,6 +969,7 @@ Os requisitos seguem o modelo de meta de cinco partes do material da disciplina
 alvo, adotam-se dois patamares: o \textbf{alvo planejado} e o \textbf{pior caso
 aceitável}.
 
+% [B16] Regra de veredito e exemplos numéricos de IC (n=8, n=10) detalhados demais; sintetizar.
 \textbf{Regra de veredito.} Para as métricas de proporção (RU01 a RU06), a
 verificação compara o limite inferior unilateral de 95\% do intervalo de
 Clopper--Pearson \cite{clopper1934} com os patamares: \textit{atende} se o
@@ -1023,6 +985,7 @@ requisito de tempo ou de erro é pareado com um de eficácia na mesma classe
 (RU04 com RU01; RU05 e RU06 com RU02), para que o tempo só conte quando a tarefa
 foi concluída, evitando otimizar uma métrica à custa da outra.
 
+% [B16] Âncora de satisfação: conversão linear e SUS 68 podem virar 2-3 frases.
 \textbf{Âncora de satisfação.} O padrão oficial de qualidade é nota média de
 4,5 em 5 \cite{padroesqualidade}. Adotou-se a conversão linear
 $\mathrm{nota}=1+4\times\mathrm{SUS}/100$, na qual 4,5 corresponde a SUS $=87{,}5$.
@@ -1041,6 +1004,7 @@ tolerância de \textbf{no máximo 1 erro de rota}; o limite inaceitável é o de
 minutos, menor tempo total de sessão registrado entre os que terminaram sem êxito
 ou com ajuda de terceiros (S3). São hipóteses a validar na Entrega~3.
 
+% [B16] RU01/02/03 têm a mesma métrica; RU04/05 e RU07/08 idem; "pior caso 60%" e "veredito Clopper-Pearson, n=10" repetidos em 6+ quadros. Consolidar texto comum antes dos quadros ou parametrizar na macro.
 \requisito{RU01}{Eficácia}{Etapas 1 a 3 da HTA (objetivo 0)}{C1: familiarizado com a web}%
   {Proporção de participantes que chegam ao formulário com Assunto = ITBI sem ajuda de terceiros e sem intervenção do moderador.}%
   {Planejado: $\geq$ 80\% dos participantes. Pior caso aceitável: $\geq$ 60\%. Linha de base observada: 1 de 3 (S1 sim; S2 e S5 não); sem valor inferencial.}%
@@ -1081,6 +1045,7 @@ ou com ajuda de terceiros (S3). São hipóteses a validar na Entrega~3.
   {Planejado: média $\geq$ 87,5 (equivale a 4,5 em 5 pela conversão linear). Pior caso aceitável: limite inferior do IC de 95\% $\geq$ 68. A meta é a mesma de RU07: não se admite satisfação menor para quem tem menos letramento.}%
   {Escala SUS aplicada após teste moderado, $n=10$.}
 
+% [B16] Texto "Cobertura" repete contagem do resumo e do capítulo.
 \textbf{Cobertura.} Três requisitos de eficácia, três de eficiência e dois de
 satisfação, no total de oito. A classe C3 tem requisito de eficácia (RU03) e
 tem, de resto, cobertura dos requisitos de acessibilidade, porque é a classe
@@ -1094,6 +1059,7 @@ teto do que é possível.
 \chapter{Requisitos de acessibilidade}\label{cap:acessibilidade}
 % =====================================================================
 
+% [B17] Introdução do cap. Acessibilidade ainda repete parte da inspeção própria; manter só o resultado ("nenhum dos 12 atende") e a remissão.
 Em atendimento ao art.~63 da Lei n.º 13.146/2015 \cite{lbi2015} e ao padrão de
 conformidade de acessibilidade da administração pública \cite{emag}, adota-se o
 nível de conformidade \textbf{AA} da WCAG 2.2 \cite{wcag22}. A verificação
@@ -1101,16 +1067,12 @@ ocorre por inspeção (ferramenta automática e navegação manual por teclado e
 leitor de tela). Os doze critérios abaixo foram escolhidos por serem aplicáveis
 ao fluxo e por haver indício, nas capturas ou nas sessões, de risco de falha.
 
-A equipe realizou a inspeção própria complementar descrita na seção~2.3: leitor de
-tela NVDA (modos de navegação e de foco), navegação exclusiva por teclado (Tab,
-Shift+Tab, Enter, Espaço e setas), medição de contraste, simulação responsiva a
-320 px e medição do tamanho dos alvos. \textbf{Os doze requisitos foram verificados
-e nenhum é atendido pelo serviço atual.} A simulação de refluxo foi feita no modo
-responsivo das ferramentas de desenvolvedor do navegador, com \textit{viewport} de
-320 px (equivalente a zoom de 400\% em janela inicial de 1280 px); os alvos foram
-medidos manualmente pelo inspetor de elementos do navegador. A inspeção com NVDA e
-teclado foi feita por integrante sem deficiência visual e, por isso, simula, mas
-não substitui, o uso por pessoa usuária de leitor de tela.
+A inspeção própria complementar (seção~2.3) foi feita com leitor de tela NVDA (modos
+de navegação e de foco), navegação exclusiva por teclado (Tab, Shift+Tab, Enter,
+Espaço e setas), medição de contraste, simulação responsiva a 320 px e medição do
+tamanho dos alvos. \textbf{Os doze requisitos foram verificados e nenhum é atendido
+pelo serviço atual.} Por ter sido feita por integrante sem deficiência visual, a
+inspeção simula, mas não substitui, o uso por pessoa usuária de leitor de tela.
 
 \begin{quadro}[!htbp]
   \caption{Requisitos de acessibilidade e resultado da inspeção}\label{qua:ra}
@@ -1118,12 +1080,12 @@ não substitui, o uso por pessoa usuária de leitor de tela.
   \begin{tabularx}{\textwidth}{|c|>{\raggedright\arraybackslash}p{3.4cm}|c|>{\raggedright\arraybackslash}p{1.9cm}|>{\raggedright\arraybackslash}X|}\hline
     \textbf{ID} & \textbf{Critério de sucesso WCAG 2.2} & \textbf{Nível} & \textbf{Etapa da HTA} & \textbf{Inspeção e resultado} \\\hline
     RA01 & 1.3.1 Informações e relações: menus, abas, listas e campos com estrutura programática & A & 1.1 a 1.3, 3.1 e formulário & NVDA e teclado, \textbf{realizada: não atende}. Topo e navegação sem \texttt{nav} e \texttt{header} (lidos como ``lista com N itens''); catálogo em três colunas lido como blocos soltos, sem hierarquia ou contagem. \\\hline
-    RA02 & 1.4.3 Contraste (mínimo): 4,5:1 (3:1 se grande) & AA & 1.3 e 3 (catálogo, serviço, formulário) & Medição nas capturas, \textbf{realizada: não atende} (A4, A9: 1,35:1 a 2,61:1). Conferência com ferramenta automática recomendada. \\\hline
-    RA03 & 1.4.11 Contraste não textual: 3:1 em estados e bordas & AA & 1.3 e 3.1 & Medição nas capturas, \textbf{realizada: não atende} (item e aba selecionados, 1,35:1 e 1,69:1; A4). \\\hline
-    RA04 & 1.4.10 Refluxo: utilizável a 320 px sem rolagem em duas dimensões & AA & Todas, em celular (S4) & Simulação no modo responsivo das ferramentas de desenvolvedor, com \textit{viewport} de 320 px (equivalente a zoom de 400\%), \textbf{realizada: não atende}. Há rolagem horizontal bidirecional nas tabelas, nos formulários legados e no cabeçalho estático, além de sobreposição de texto nos menus secundários (A12). \\\hline
+    RA02 & 1.4.3 Contraste (mínimo): 4,5:1 (3:1 se grande) & AA & 1.3 e 3 (catálogo, serviço, formulário) & Medição nas capturas, \textbf{realizada: não atende} (A4, A9). Conferência com ferramenta automática recomendada. \\\hline
+    RA03 & 1.4.11 Contraste não textual: 3:1 em estados e bordas & AA & 1.3 e 3.1 & Medição nas capturas, \textbf{realizada: não atende} (item e aba selecionados; A4). \\\hline
+    RA04 & 1.4.10 Refluxo: utilizável a 320 px sem rolagem em duas dimensões & AA & Todas, em celular (S4) & Simulação responsiva a 320 px, \textbf{realizada: não atende}. Rolagem horizontal bidirecional e sobreposição de texto nos menus secundários (A12). \\\hline
     RA05 & 2.1.1 Teclado: menu, catálogo e cartões operáveis sem mouse & A & 1.1, 1.2, 2.1 e 3.1 & Teclado, \textbf{realizada: não atende}. Submenu Serviços só reage a \textit{hover} e não abre por Tab; cartões em \texttt{div} sem \texttt{tabindex} são saltados (A11). \\\hline
     RA06 & 2.4.7 Foco visível & AA & Todas & Teclado, \textbf{realizada: não atende}. Foco com baixo contraste ou removido na faixa de botões e nos itens do catálogo (Receita). \\\hline
-    RA07 & 2.5.8 Tamanho do alvo (mínimo): 24 por 24 px, ou espaçamento equivalente & AA & 1.1 a 1.3, 2.1 e 3.1 & Medição manual da largura e altura no inspetor de elementos do navegador, \textbf{realizada: não atende}. Links secundários do catálogo da Receita, ícones de ação e paginação dos cartões do Atendimento Virtual e botões de fonte e contraste no topo do portal têm alvos menores que 24\,$\times$\,24 px (A12). \\\hline
+    RA07 & 2.5.8 Tamanho do alvo (mínimo): 24 por 24 px, ou espaçamento equivalente & AA & 1.1 a 1.3, 2.1 e 3.1 & Medição manual dos alvos, \textbf{realizada: não atende}. Links secundários do catálogo, ícones e paginação dos cartões e botões de fonte e contraste do portal ficam abaixo de 24\,$\times$\,24 px (A12). \\\hline
     RA08 & 3.2.4 Identificação consistente (A2, A10) & AA & 1 e 2 & Inspeção manual das capturas, \textbf{realizada: não atende} (``Governo e Parceiros'' e ``Governos e Parceiros''; barra de acessibilidade ausente no terceiro site). \\\hline
     RA09 & 3.3.2 Rótulos ou instruções: obrigatoriedade e opções identificadas & A & Formulário (término) & NVDA, \textbf{realizada: não atende}. Obrigatoriedade só pelo asterisco, sem \texttt{aria-required}: ``E-mail, edição, em branco''. \\\hline
     RA10 & 4.1.2 Nome, função, valor & A & 1.1, 1.2, 3.1 e formulário & NVDA, \textbf{realizada: não atende}. Menu sem \texttt{aria-expanded}; cartões como imagem sem texto alternativo; ícones do editor lidos como ``Botão''; ITBI e ITCD lidas letra por letra. \\\hline
@@ -1131,6 +1093,7 @@ não substitui, o uso por pessoa usuária de leitor de tela.
     RA12 & 2.4.3 Ordem do foco & A & 1.2 a 2.1 (Receita) & Teclado, \textbf{realizada: não atende}. O foco chega ao campo de busca antes dos botões principais. \\\hline
   \end{tabularx}
   \fonte{Elaborado pelos autores com base em W3C \cite{wcag22} e na inspeção própria de 2026.}
+% [B17] Nota sobre 3.1.4 (ITBI/ITCD sem expansão) repete A6.
   \nota{As razões de contraste são medidas sobre capturas de tela. Observação fora do nível AA: as siglas ITBI e ITCD não têm expansão (critério 3.1.4, nível AAA).}
 \end{quadro}
 
@@ -1138,6 +1101,7 @@ não substitui, o uso por pessoa usuária de leitor de tela.
 \chapter{Matriz de rastreabilidade}\label{cap:matriz}
 % =====================================================================
 
+% [B18] Capítulo cabe em 2 frases: lista de colunas e remissão ao xlsx repetem o enunciado.
 A matriz de rastreabilidade é entregue em arquivo separado,
 \texttt{UCEngUs\_\allowbreak matriz\_\allowbreak Grupo\preencher{0X}.xlsx}, elaborado sobre o modelo
 fornecido pela disciplina. Ela contém uma linha para cada requisito dos
@@ -1215,28 +1179,13 @@ Roteiro consolidado a partir das perguntas efetivamente feitas nas sessões com 
   \item Há algo importante que eu não perguntei?
 \end{enumerate}
 
+% [B19] Cenário e meta repetidos de 283-286.
 \textbf{Observação de uso.} Cenário: ``imagine que você comprou um imóvel
 recentemente e precisa pagar o imposto que incide sobre essa compra pelo Governo
 do DF; tente fazer isso pelo site da Secretaria de Economia''. Meta: encontrar
 onde emitir a guia de ITBI. Instruções: usar o aparelho do próprio participante,
 falar em voz alta, sem ajuda nem correção do entrevistador, com liberdade para
 parar a qualquer momento.
-
-\chapter{Perfil dos participantes}\label{ap:perfil}
-
-\begin{table}[!htbp]
-  \caption{Perfil dos participantes}\label{tab:perfil}
-  \centering\small
-  \begin{tabularx}{\textwidth}{clYYl}\toprule
-    \textbf{Sessão} & \textbf{Código} & \textbf{Perfil} & \textbf{Método} & \textbf{Dispositivo} \\\midrule
-    S1 & P01 & Mulher, por volta de 40 anos; ensino superior completo; já lidou com ITBI & Observação de uso e entrevista & Computador \\
-    S2 & P02 & Mulher, entre 20 e 30 anos; ensino superior completo; habituada à web & Observação de uso e entrevista & Computador de mesa \\
-    S3 & P03 & Homem idoso; ensino médio completo; já lidou com a questão; depende da esposa para a internet & Entrevista & Computador \\
-    S4 & P04 & Mulher, 19 anos (maior de idade); cursando ensino superior; já lidou com compra, venda e recebimento de imóveis & Entrevista e observação de uso & Celular \\
-    S5 & P05 & Homem, 23 anos; ensino superior incompleto & Observação de uso (nota de campo) & Notebook \\\bottomrule
-  \end{tabularx}
-  \fonte{Elaborada pelos autores (2026).}
-\end{table}
 
 \chapter{Registro de consentimento verbal}\label{ap:consentimento}
 Fórmula lida no início de cada sessão:
@@ -1250,13 +1199,13 @@ qualquer momento e pode pedir para não responder qualquer pergunta.
 \begin{table}[!htbp]
   \caption{Registro de consentimento por sessão}\label{tab:consentimento}
   \centering\small
-  \begin{tabularx}{\textwidth}{cccY}\toprule
-    \textbf{Sessão} & \textbf{Data} & \textbf{Fórmula lida} & \textbf{Concordou} \\\midrule
-    S1 & 05/10/2026 & Sim & Sim (``Ok'' e, ao fim da observação, ``Concordo'') \\
-    S2 & 06/10/2026 & Sim & Sim, aceite explícito verbal logo após a leitura (``Sim, concordo em participar e gravar a tela/voz'') \\
-    S3 & 07/10/2026 & Sim & Sim, aceite explícito verbal logo após a leitura (``Sim, concordo em participar e gravar a tela/voz'') \\
-    S4 & 08/10/2026 & Sim & Sim (``Sim'') \\
-    S5 & 19/10/2026 & \preencher{confirmar} & \preencher{confirmar o aceite verbal; a nota de campo não o registra} \\\bottomrule
+  \begin{tabularx}{\textwidth}{ccY}\toprule
+    \textbf{Sessão} & \textbf{Fórmula lida} & \textbf{Concordou} \\\midrule
+    S1 & Sim & Sim (``Ok'' e, ao fim da observação, ``Concordo'') \\
+    S2 & Sim & Sim, aceite explícito verbal logo após a leitura (``Sim, concordo em participar e gravar a tela/voz'') \\
+    S3 & Sim & Sim, aceite explícito verbal logo após a leitura (``Sim, concordo em participar e gravar a tela/voz'') \\
+    S4 & Sim & Sim (``Sim'') \\
+    S5 & \preencher{confirmar} & \preencher{confirmar o aceite verbal; a nota de campo não o registra} \\\bottomrule
   \end{tabularx}
   \fonte{Elaborada pelos autores (2026).}
   \nota{Nas sessões, a fórmula foi dita com variações de redação e com a promessa de uso de pseudônimo. P04 tem 19 anos e é maior de idade, o que dispensa o termo de consentimento de responsável.}
@@ -1353,6 +1302,7 @@ alcança o formulário de emissão de guia de ITBI. Marcação de tempo da equip
   \nota{A nota original identifica o participante como ``Participante 4''; neste relatório ele é o P05. \preencher{Corrigir o código na nota de campo original.}}
 \end{table}
 
+% [B19] Apêndice Fontes secundárias repete 314-319 (e remissões de persona nos quadros).
 \chapter{Fontes secundárias utilizadas}\label{ap:fontes}
 
 \begin{itemize}
