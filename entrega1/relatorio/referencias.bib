@@ -1,5 +1,7 @@
 % Referências-base (ABNT NBR 6023 via abntex2cite).
 % Confira edição/ano antes de submeter. Só aparecem na lista as que forem citadas.
+% \hifen: intervalo de páginas com hífen (NBR 6023), pois o estilo troca "-" por "--".
+@preamble{"\providecommand{\hifen}{-}"}
 
 @manual{iso9241-11-2018,
   author       = {{INTERNATIONAL ORGANIZATION FOR STANDARDIZATION}},
@@ -28,11 +30,12 @@
   year         = {2019}
 }
 
-@misc{lbi2015,
+@article{lbi2015,
   author       = {{BRASIL}},
-  title        = {Lei n.\textordmasculine\ 13.146, de 6 de julho de 2015},
-  subtitle     = {institui a {Lei Brasileira de Inclus{\~a}o da Pessoa com Defici{\^e}ncia} ({Estatuto da Pessoa com Defici{\^e}ncia})},
-  howpublished = {Di{\'a}rio Oficial da Uni{\~a}o: se{\c c}{\~a}o 1, Bras{\'\i}lia, DF, 7 jul. 2015},
+  title        = {Lei n.\textordmasculine\ 13.146, de 6 de julho de 2015. {Institui} a {Lei Brasileira de Inclus{\~a}o da Pessoa com Defici{\^e}ncia} ({Estatuto da Pessoa com Defici{\^e}ncia})},
+  journal      = {Di{\'a}rio Oficial da Uni{\~a}o: se{\c c}{\~a}o 1},
+  address      = {Bras{\'\i}lia, DF},
+  month        = {7 jul.},
   year         = {2015},
   url          = {https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2015/lei/l13146.htm},
   urlaccessdate= {15 out. 2026}
@@ -54,7 +57,7 @@
 @misc{wcag22,
   author       = {{WORLD WIDE WEB CONSORTIUM}},
   title        = {Web Content Accessibility Guidelines ({WCAG}) 2.2},
-  howpublished = {W3C Recommendation},
+  publisher    = {{W3C}},
   year         = {2023},
   url          = {https://www.w3.org/TR/WCAG22/},
   urlaccessdate= {15 out. 2026}
@@ -92,7 +95,7 @@
   journal      = {Journal of Experimental Psychology},
   volume       = {47},
   number       = {6},
-  pages        = {381--391},
+  pages        = {381\hifen{}391},
   year         = {1954}
 }
 
@@ -102,7 +105,7 @@
   journal      = {Quarterly Journal of Experimental Psychology},
   volume       = {4},
   number       = {1},
-  pages        = {11--26},
+  pages        = {11\hifen{}26},
   year         = {1952}
 }
 
@@ -114,7 +117,7 @@
   address      = {London},
   publisher    = {Taylor \& Francis},
   year         = {1996},
-  pages        = {189--194}
+  pages        = {189\hifen{}194}
 }
 
 @book{stanton2005,
@@ -129,7 +132,7 @@
 @misc{ticdomicilios,
   author       = {{N{\'U}CLEO DE INFORMA{\c C}{\~A}O E COORDENA{\c C}{\~A}O DO PONTO BR}},
   title        = {Pesquisa sobre o uso das tecnologias de informa{\c c}{\~a}o e comunica{\c c}{\~a}o nos domic{\'\i}lios brasileiros},
-  subtitle     = {{TIC} Domic{\'\i}lios},
+  subtitle     = {{TIC Domic{\'\i}lios}},
   address      = {S{\~a}o Paulo},
   publisher    = {Comit{\^e} Gestor da Internet no Brasil},
   year         = {2025},
@@ -143,7 +146,7 @@
   title        = {Task analysis and training design},
   journal      = {Occupational Psychology},
   volume       = {41},
-  pages        = {211--221},
+  pages        = {211\hifen{}221},
   year         = {1967}
 }
 
@@ -161,7 +164,7 @@
   journal      = {Biometrika},
   volume       = {26},
   number       = {4},
-  pages        = {404--413},
+  pages        = {404\hifen{}413},
   year         = {1934}
 }
 
@@ -178,6 +181,7 @@
 @misc{webaim2024,
   author       = {{WEBAIM}},
   title        = {Screen reader user survey \#10},
+  address      = {Logan},
   publisher    = {Utah State University, Center for Persons with Disabilities},
   year         = {2024},
   url          = {https://webaim.org/projects/screenreadersurvey10/},
